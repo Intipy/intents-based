@@ -50,4 +50,4 @@ async def on_message(message):
     if message.content.startswith('파이드 이름성'):
         await message.channel.send('저의 주인님 입니다만...?')
 
-client.run('NzkwODQ2MTM1MzIxMjMxMzgx.X-Gi2w.IwZ1YOEWo-2kkgyaI01y05iOJn0')
+client.run('NzkwODQ2MTM1MzIxMjMxMzgx.X-Gi2w.kgmBip9WdRcGVOh3CdgljkKNFkA')

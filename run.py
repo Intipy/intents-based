@@ -55,4 +55,4 @@ async def on_message(message):
         await message.channel.send('저의 주인님 입니다만...?')
 
 access_token = os.environ["BOT_TOKEN"]
-client.run('access_token')
+client.run(access_token)

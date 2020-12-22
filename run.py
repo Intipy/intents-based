@@ -1,4 +1,8 @@
 import discord
+import os
+
+
+
 
 client = discord.Client()
 
@@ -50,4 +54,5 @@ async def on_message(message):
     if message.content.startswith('파이드 이름성'):
         await message.channel.send('저의 주인님 입니다만...?')
 
-client.run('NzkwODQ2MTM1MzIxMjMxMzgx.X-Gi2w.kgmBip9WdRcGVOh3CdgljkKNFkA')
+access_token = os.environ["BOT_TOKEN"]
+client.run('access_token')

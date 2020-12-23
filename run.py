@@ -239,5 +239,80 @@ async def on_message(message):
     if message.content.startswith('69'):
         await message.channel.send('74...인줄 알았지~? 한남이지롱~')
 
+    if message.content.startswith('파이드 루리웹'):
+        await message.channel.send('-근-')
+
+    if message.content.startswith('파이드 skydra'):
+        await message.channel.send('야갤 네임드')
+
+    if message.content.startswith('파이드 박틸틸'):
+        await message.channel.send('고닉 박틸틸을 응원합니다')
+
+    if message.content.startswith('파이드 근'):
+        await message.channel.send('첩')
+
+    if message.content.startswith('파이드 페도'):
+        await message.channel.send('취향입니다만?')
+
+    if message.content.startswith('파이드 엄준식'):
+        await message.channel.send('엄준식 화이팅!')
+
+    if message.content.startswith('엄준식'):
+        await message.channel.send('와! 엄준식! 아시는구나!')
+
+    if message.content.startswith('파이드 아이템의 인벤토리'):
+        await message.channel.send('???: 죽고 나서 올라온 mc무현 작품은 악질적인 것 밖에 없다.')
+
+    if message.content.startswith('파이드 근첩토리'):
+        await message.channel.send('오늘 알아볼 것은...')
+
+    if message.content.startswith('파이드 뷰지'):
+        await message.channel.send('뷰빨 한번 괜찮겠습니까?')
+
+    if message.content.startswith('파이드 송모찌'):
+        await message.channel.send('사랑해')
+
+    if message.content.startswith('파이드 광주'):
+        await message.channel.send('광역시')
+
+    if message.content.startswith('파이드 문재앙'):
+        await message.channel.send('좌파 친북 치매 틀딱~')
+
+    if message.content.startswith('파이드 비틱'):
+        await message.channel.send('-----비적비 시전중...-----')
+
+    if message.content.startswith('파이드 네덕'):
+        await message.channel.send('저는 네덕분들을 지지합니다')
+
+    if message.content.startswith('파이드 네캎'):
+        await message.channel.send('디첩새끼 괘씸하거든요? 하아.. 엄보지카이..')
+
+    if message.content.startswith('파이드 예아'):
+        await message.channel.send('안될거머있누')
+
+    if message.content.startswith('파이드 여친'):
+        await message.channel.send('제 여친은 크시에요!')
+
+    if message.content.startswith('파이드 주식'):
+        await message.channel.send('오늘 알아볼 회사는 노무현 엔터테인트먼트(주) 입니다')
+
+    if message.content.startswith('파이드 샌즈tv'):
+        await message.channel.send('화력 재기했노 이기야')
+
+    if message.content.startswith('파이드 rmh'):
+        await message.channel.send('로무연')
+
+    if message.content.startswith('파이드 탕탕'):
+        await message.channel.send('좀더 대국적으로 ')
+
+    if message.content.startswith('파이드 중력절'):
+        await message.channel.send('그립읍니다...')
+
+    if message.content.startswith('파이드 고통'):
+        await message.channel.send('이 너무 크다..')
+
+    if message.content.startswith('파이드 자살'):
+        await message.channel.send('고통이 너무 크신가요? 자살 예방 상담을 추천드려요!')
+
 m = "NzkwODQ2MTM1MzIxMjMxMzgx"+".X-Gi2w.wd8kpfrRxsrJVKvGISXl8ICgzqU"
 client.run(m)

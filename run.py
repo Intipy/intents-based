@@ -173,15 +173,71 @@ async def on_message(message):
     if message.content.startswith('파이드 523'):
         await message.channel.send('ㅈㄹㅈ')
 
-    if message.content.startswith('ㅈㄹㅅ'):
+    if message.content.startswith('파이드 중력시'):
         await message.channel.send('523523523523523523523523523523523523523')
 
-    if message.content.startswith('파피루스'):
+    if message.content.startswith('파이드 파피루스'):
         await message.channel.send('할줄아는거 좆도 없는 하등 벌레새끼')
 
+    if message.content.startswith('헋'):
+        await message.channel.send('헋')
 
+    if message.content.startswith('에휴'):
+        await message.channel.send('에휴')
 
+    if message.content.startswith('에후'):
+        await message.channel.send('에후')
 
+    if message.content.startswith('애휴'):
+        await message.channel.send('애휴')
+
+    if message.content.startswith('애후'):
+        await message.channel.send('애후')
+
+    if message.content.startswith('병신'):
+        await message.channel.send('병신')
+
+    if message.content.startswith('병슨'):
+        await message.channel.send('병슨')
+
+    if message.content.startswith('븅슨'):
+        await message.channel.send('븅슨')
+
+    if message.content.startswith('변슨'):
+        await message.channel.send('변슨')
+
+    if message.content.startswith('뷴신'):
+        await message.channel.send('뷴신')
+
+    if message.content.startswith('변신'):
+        await message.channel.send('변신')
+
+    if message.content.startswith('ㅂㅅ'):
+        await message.channel.send('ㅂㅅ')
+
+    if message.content.startswith('ㅄ'):
+        await message.channel.send('ㅄ')
+
+    if message.content.startswith('븅신'):
+        await message.channel.send('븅신')
+
+    if message.content.startswith('뷴슨'):
+        await message.channel.send('뷴슨')
+
+    if message.content.startswith('파이드 허언이'):
+        await message.channel.send('허언이 엉덩이 조물조물')
+
+    if message.content.startswith('파이드 악잠'):
+        await message.channel.send('악잠 쭈인님!')
+
+    if message.content.startswith('파이드 히토미'):
+        await message.channel.send('힡옴이 쵝오!')
+
+    if message.content.startswith('파이드 폰허브'):
+        await message.channel.send('라이브')
+
+    if message.content.startswith('69'):
+        await message.channel.send('74...인줄 알았지~? 한남이지롱~')
 
 m = "NzkwODQ2MTM1MzIxMjMxMzgx"+".X-Gi2w.wd8kpfrRxsrJVKvGISXl8ICgzqU"
 client.run(m)

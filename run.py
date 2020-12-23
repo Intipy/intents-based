@@ -11,8 +11,11 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('파이드 안녕'):
+    if message.content('파이드 안녕'):
         await message.channel.send('반갑다 씹년아')
+
+    if message.content('파이드 안녕k'):
+        await message.channel.send('반갑다 dd')
 
     if message.content.startswith('파이드 사랑해'):
         await message.channel.send('나는 너 사랑 안하는데? 역겨워 꺼져')

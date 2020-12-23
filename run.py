@@ -11,11 +11,8 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content('파이드 안녕'):
+    if message.content.startswith('파이드 안녕'):
         await message.channel.send('반갑다 씹년아')
-
-    if message.content('파이드 안녕k'):
-        await message.channel.send('반갑다 dd')
 
     if message.content.startswith('파이드 사랑해'):
         await message.channel.send('나는 너 사랑 안하는데? 역겨워 꺼져')
@@ -251,9 +248,6 @@ async def on_message(message):
     if message.content.startswith('파이드 박틸틸'):
         await message.channel.send('고닉 박틸틸을 응원합니다')
 
-    if message.content.startswith('파이드 근'):
-        await message.channel.send('첩')
-
     if message.content.startswith('파이드 페도'):
         await message.channel.send('취향입니다만?')
 
@@ -298,9 +292,6 @@ async def on_message(message):
 
     if message.content.startswith('파이드 주식'):
         await message.channel.send('오늘 알아볼 회사는 노무현 엔터테인트먼트(주) 입니다')
-
-    if message.content.startswith('파이드 샌즈tv'):
-        await message.channel.send('화력 재기했노 이기야')
 
     if message.content.startswith('파이드 rmh'):
         await message.channel.send('로무연')

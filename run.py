@@ -2,18 +2,22 @@ import discord
 import asyncio
 import os
 from discord.ext import commands
+from discord.ext.commands import bot
 
 w = 'NzkwODQ2MTM1MzIxMjMxMzgx.X-Gi2w.wd8kpfrRxsrJVKvGISXl8ICgzq'+'U'
 bot = commands.Bot(command_prefix = '파이드 ') 
 
 
-
-@bot.event
-async def on_ready():
-    print('Logged in as')
-    print(bot.user.name)
-    print(bot.user.id)
-    print('------')
+@bot.command()
+async def 도움말(ctx):
+    embed = discord.Embed(colour = 808000)
+    embed.add_field(name='파이드와 대화하기', value='파이드 [하고 싶은 말] <--(ex: 파이드 사랑해)', inline=False)
+    embed.add_field(name='파이드에게 대답 가르치기', value='파이드 배워 [말]/[대답] <--(ex: 파이드 배워 사랑해/꺼져 )', inline=False)
+    embed.add_field(name='파이드가 대답을 안한다면?', value='오류보단 대답을 몰라서 못하는 경우가 많아요. 대답을 못한다면 대답을 가르쳐보세요!', inline=False)
+    embed.add_field(name='파이드 업데이트', value='파이드는 매일 11시~12시 사이에 업데이트를 해요. 여러분이 가르친 말, 버그 수정 등이 적용돼요.', inline=False)
+    embed.add_field(name='파이드 발전', value='파이드는 처음엔 할 수 있는 대답, 기능이 적지만 여러분이 가르친 대답과 업데이트를 통해 점점 발전해요', inline=False)
+    embed.add_field(name='파이드 오류 수정 문의', value='#파이드 오류:[문제점] <--(ex: 파이드 오류:대답안함)', inline=False)
+    await ctx.send(embed=embed)
 
 
 @bot.command()
@@ -387,13 +391,13 @@ async def 좋아해(ctx):
 @bot.command()
 async def 반가워(ctx):
     await ctx.send('ㅇ')
-    
+
 @bot.command()
-async def 하이(ctx):
-    await ctx.send('하위')
+async def 배리나(ctx):
+    await ctx.send('리나언니 힘내요!')
+
     
 
 
 
 bot.run(w)
-

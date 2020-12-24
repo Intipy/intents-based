@@ -396,7 +396,77 @@ async def 반가워(ctx):
 async def 배리나(ctx):
     await ctx.send('리나언니 힘내요!')
 
-    
+@bot.command()
+async def 엄준식(ctx):
+    await ctx.send('엄준식 화이팅!')
+
+@bot.command()
+async def 박틸틸(ctx):
+    await ctx.send('박틸틸 화이팅!')
+
+@bot.command()
+async def ㅈㄹㅅ(ctx):
+    await ctx.send('5시23분!')
+
+@bot.command()
+async def 중력절(ctx):
+    await ctx.send('중력 500배')
+
+@bot.command()
+async def 엄(ctx):
+    await ctx.send('준식')
+
+@bot.command()
+async def 찐(ctx):
+    await ctx.send('Wls')
+
+@bot.command()
+async def 엄마(ctx):
+    await ctx.send('사랑해요!')
+
+@bot.command()
+async def 아빠(ctx):
+    await ctx.send('사랑해요!')
+
+@bot.command()
+async def 크시(ctx):
+    await ctx.send('크시 그 퇴물 좆냥이 말고 파이드를 애용합시다')
+
+@bot.command()
+async def 크시야(ctx):
+    await ctx.send('저는 크시가 아니라 파이드에요 씨발련아')
+
+@bot.command()
+async def 박근혜(ctx):
+    await ctx.send('-근-')
+
+@bot.command()
+async def 김영삼(ctx):
+    await ctx.send('IMF')
+
+@bot.command()
+async def 노태우(ctx):
+    await ctx.send('누태우입니다')
+
+@bot.command()
+async def mc무현(ctx):
+    await ctx.send('???: mc무현은 사실상 일베')
+
+@bot.command()
+async def 합필(ctx):
+    await ctx.send('야 기분좋다~')
+
+@bot.command()
+async def 비건(ctx):
+    await ctx.send('비-간')
+
+@bot.command()
+async def 비건육아(ctx):
+    await ctx.send('개씨발새끼들')
+
+@bot.command()
+async def 채식주의(ctx):
+    await ctx.send('음식이 아니라 폭력입니다')
 
 
 

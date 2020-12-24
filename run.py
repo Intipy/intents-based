@@ -409,10 +409,6 @@ async def ㅈㄹㅅ(ctx):
     await ctx.send('5시23분!')
 
 @bot.command()
-async def 중력절(ctx):
-    await ctx.send('중력 500배')
-
-@bot.command()
 async def 엄(ctx):
     await ctx.send('준식')
 

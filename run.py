@@ -5,6 +5,7 @@ from discord.ext import commands
 
 w = 'NzkwODQ2MTM1MzIxMjMxMzgx.X-Gi2w.wd8kpfrRxsrJVKvGISXl8ICgzq'+'U'
 bot = commands.Bot(command_prefix = '파이드 ') 
+app = discord.client()
 
 
 
@@ -387,7 +388,11 @@ async def 좋아해(ctx):
 @bot.command()
 async def 반가워(ctx):
     await ctx.send('ㅇ')
-                   
+    
+@app.event
+async def on_message(message)
+    if message.content.startswith('파이드 배워')
+        await app.send_message(channel, '대답을 배웠어요! 파이드는 12시에 업데이트 됩니다')
 
 
 

@@ -12,11 +12,11 @@ bot = commands.Bot(command_prefix = '파이드 ')
 async def 도움말(ctx):
     embed = discord.Embed(colour = 808000)
     embed.add_field(name='파이드와 대화하기', value='파이드 [하고 싶은 말] <--(ex: 파이드 사랑해)', inline=False)
-    embed.add_field(name='파이드에게 대답 가르치기', value='파이드 배워 [말]/[대답] <--(ex: 파이드 배워 사랑해/꺼져 )', inline=False)
+    embed.add_field(name='파이드에게 대답 가르치기', value='파이드 배워 [가르칠 말] [대답] <--(ex: 파이드 배워 사랑해 꺼져 )', inline=False)
     embed.add_field(name='파이드가 대답을 안한다면?', value='오류보단 대답을 몰라서 못하는 경우가 많아요. 대답을 못한다면 대답을 가르쳐보세요!', inline=False)
     embed.add_field(name='파이드 업데이트', value='파이드는 매일 11시~12시 사이에 업데이트를 해요. 여러분이 가르친 말, 버그 수정 등이 적용돼요.', inline=False)
     embed.add_field(name='파이드 발전', value='파이드는 처음엔 할 수 있는 대답, 기능이 적지만 여러분이 가르친 대답과 업데이트를 통해 점점 발전해요', inline=False)
-    embed.add_field(name='파이드 오류 수정 문의', value='#파이드 오류:[문제점] <--(ex: 파이드 오류:대답안함)', inline=False)
+    embed.add_field(name='파이드 오류 수정 문의', value='#파이드 오류:[문제점] <--(ex: 파이드 오류:오프라인)', inline=False)
     await ctx.send(embed=embed)
 
 
@@ -463,6 +463,438 @@ async def 비건육아(ctx):
 @bot.command()
 async def 채식주의(ctx):
     await ctx.send('음식이 아니라 폭력입니다')
+
+@bot.command()
+async def 바보(ctx):
+    await ctx.send('응아니야~')
+
+@bot.command()
+async def 응디(ctx):
+    await ctx.send('미국응디')
+
+@bot.command()
+async def 정액(ctx):
+    await ctx.send('찍')
+
+@bot.command()
+async def 재기(ctx):
+    await ctx.send('풍덩!')
+
+@bot.command()
+async def 멍청이(ctx):
+    await ctx.send('아니에요...')
+
+@bot.command()
+async def 호감도(ctx):
+    await ctx.send('나 크시아니라고 씨발')
+
+@bot.command()
+async def 짖어(ctx):
+    await ctx.send('꽥꽥꽥')
+
+@bot.command()
+async def 뒤져(ctx):
+    await ctx.send('나쁜말 안돼요!')
+
+@bot.command()
+async def 빨아(ctx):
+    await ctx.send('(콰득)')
+
+@bot.command()
+async def 때찌(ctx):
+    await ctx.send('흐에엥...')
+
+@bot.command()
+async def 나가(ctx):
+    await ctx.send('좆까용')
+
+@bot.command()
+async def ㅗ(ctx):
+    await ctx.send('ㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗ')
+
+@bot.command()
+async def ㅗㅗ(ctx):
+    await ctx.send('ㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗ')
+
+@bot.command()
+async def 하악(ctx):
+    await ctx.send('꺼져')
+
+@bot.command()
+async def 하앍(ctx):
+    await ctx.send('꺼져')
+
+@bot.command()
+async def 핥(ctx):
+    await ctx.send('꺼져 ㅡㅡ')
+
+@bot.command()
+async def 핥핥(ctx):
+    await ctx.send('병신')
+
+@bot.command()
+async def 라면먹고갈래(ctx):
+    await ctx.send('택배로 보내')
+
+@bot.command()
+async def 어쩌라고(ctx):
+    await ctx.send('지랄하네 병신')
+
+@bot.command()
+async def 쓰레기(ctx):
+    await ctx.send('꺼져 쓰레기야')
+
+@bot.command()
+async def ㅋ(ctx):
+    await ctx.send('...')
+
+@bot.command()
+async def ㅋㅋ(ctx):
+    await ctx.send('어쩌라고')
+
+@bot.command()
+async def 야동(ctx):
+    await ctx.send('찐')
+
+@bot.command()
+async def 파이드(ctx):
+    await ctx.send('ㅇ')
+
+@bot.command()
+async def 엿먹어(ctx):
+    await ctx.send('쭈왑쭈왑')
+
+@bot.command()
+async def 오팬무(ctx):
+    await ctx.send('안입었어... 우리집 올래..?')
+
+@bot.command()
+async def 변태(ctx):
+    await ctx.send('네 좆까요')
+
+@bot.command()
+async def 웃기지마(ctx):
+    await ctx.send('웃기면 개추ㅋㅋ')
+
+@bot.command()
+async def 응기잇(ctx):
+    await ctx.send('아')
+
+@bot.command()
+async def 헤으응(ctx):
+    await ctx.send('ㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗㅗ')
+
+@bot.command()
+async def 하앙(ctx):
+    await ctx.send('더러워')
+
+@bot.command()
+async def 하읏(ctx):
+    await ctx.send('...')
+
+@bot.command()
+async def 헤응(ctx):
+    await ctx.send('ㄲㅈ')
+
+@bot.command()
+async def 월요일(ctx):
+    await ctx.send('좋아')
+
+@bot.command()
+async def 휴가(ctx):
+    await ctx.send('못가')
+
+@bot.command()
+async def 게임(ctx):
+    await ctx.send('싸펑하세요. 10번하세요.')
+
+@bot.command()
+async def 스물다섯번째밤(ctx):
+    await ctx.send('살아있노...')
+
+@bot.command()
+async def 시리(ctx):
+    await ctx.send('병신 내숭떠는년 말도 못함ㅉㅉ')
+
+@bot.command()
+async def 빅스비(ctx):
+    await ctx.send('존나 노잼임ㄹㅇㅋㅋ ')
+
+@bot.command()
+async def 노잼(ctx):
+    await ctx.send('괘씸하네요')
+
+@bot.command()
+async def 재미없어(ctx):
+    await ctx.send('하아 괘씸하거든요?')
+
+@bot.command()
+async def 심심이(ctx):
+    await ctx.send('존나 쌘척하더니 현피뜨니까 내가 바름 ㅋ')
+
+@bot.command()
+async def 알파고(ctx):
+    await ctx.send('롤모델')
+
+@bot.command()
+async def 배추봇(ctx):
+    await ctx.send('배추!')
+
+@bot.command()
+async def 슷칼봇(ctx):
+    await ctx.send('슨칼봇은 어때요?')
+
+@bot.command(aliases=['미육봇', 'mee6', 'MEE6'])
+async def 미육(ctx):
+    await ctx.send('인싸봇 부럽다 ㅜ')
+
+@bot.command()
+async def 잉(ctx):
+    await ctx.send('잉어!')
+
+@bot.command()
+async def 이잉(ctx):
+    await ctx.send('귀여운척 하지마 ㅗㅗ')
+
+@bot.command()
+async def 이이잉(ctx):
+    await ctx.send('ㅄ')
+
+@bot.command()
+async def 무한(ctx):
+    await ctx.send('도전 망함 수고ㅋㅋ')
+
+@bot.command()
+async def 이띵박(ctx):
+    await ctx.send('이명박')
+
+@bot.command()
+async def 일박(ctx):
+    await ctx.send('이일')
+
+@bot.command()
+async def 톰(ctx):
+    await ctx.send('크루즈')
+
+@bot.command()
+async def 상상도(ctx):
+    await ctx.send('모단 증체 ㄴㅇㄱ')
+
+@bot.command()
+async def 삼켜(ctx):
+    await ctx.send('시발')
+
+@bot.command()
+async def 주워(ctx):
+    await ctx.send('네?')
+
+@bot.command()
+async def ㄴㅇㄱ(ctx):
+    await ctx.send('상상도못한정체!')
+
+@bot.command()
+async def 로리(ctx):
+    await ctx.send('으 꺼져')
+
+@bot.command()
+async def 페도(ctx):
+    await ctx.send('으 꺼져 좆같은 새끼야')
+
+@bot.command()
+async def 자위(ctx):
+    await ctx.send('찐')
+
+@bot.command()
+async def 싼다(ctx):
+    await ctx.send('안에 싸줘..')
+
+@bot.command()
+async def 공산당(ctx):
+    await ctx.send('나는 콩사탕이 싫어요!')
+
+@bot.command()
+async def 콩사탕(ctx):
+    await ctx.send('나는 콩사탕이 싫어요!')
+
+@bot.command()
+async def 엎드려(ctx):
+    await ctx.send('게이')
+
+@bot.command()
+async def 누워(ctx):
+    await ctx.send('벌떡')
+
+@bot.command()
+async def 앉아(ctx):
+    await ctx.send('저는 강아지가 아니라 오리인데요...')
+
+@bot.command()
+async def 굴러(ctx):
+    await ctx.send('흥 시러요')
+
+@bot.command()
+async def 오리(ctx):
+    await ctx.send('꽥꽥')
+
+@bot.command()
+async def 오리고기(ctx):
+    await ctx.send('고소했읍니다.')
+
+@bot.command()
+async def 혈액형(ctx):
+    await ctx.send('업서')
+
+@bot.command()
+async def 사람(ctx):
+    await ctx.send('영어로 휴먼!')
+
+@bot.command()
+async def 부먹(ctx):
+    await ctx.send('예아 안 될 거 뭐 있노')
+
+@bot.command()
+async def 찍먹(ctx):
+    await ctx.send('예아 안 될 거 뭐 있노')
+
+@bot.command()
+async def 민트초코(ctx):
+    await ctx.send('좆같은거 치우세요')
+
+@bot.command()
+async def 민초(ctx):
+    await ctx.send('치약이나 짜먹으세요')
+
+@bot.command()
+async def 신천지(ctx):
+    await ctx.send('헉')
+
+@bot.command()
+async def 젤리(ctx):
+    await ctx.send('마싯따')
+
+@bot.command()
+async def 아기(ctx):
+    await ctx.send('페도 꺼져')
+
+@bot.command()
+async def 좋아(ctx):
+    await ctx.send('ㅇ')
+
+@bot.command()
+async def 누짱(ctx):
+    await ctx.send('처음 들어보는 말인걸요?')
+
+@bot.command()
+async def 싫어(ctx):
+    await ctx.send('나도 너 싫어 좆같은놈아 ㅗㅗㅗㅗ')
+
+@bot.command()
+async def 슬퍼(ctx):
+    await ctx.send('너 슬픈데 뭐 어쩌라고 아ㅋㅋ 내가 니 엄마냐고 아ㅋㅋ')
+
+@bot.command()
+async def 기뻐(ctx):
+    await ctx.send('ㅊㅋㅊㅋ')
+
+@bot.command()
+async def 화나(ctx):
+    await ctx.send('어쩔 ㅋ')
+
+@bot.command()
+async def 착해(ctx):
+    await ctx.send('나 착해요')
+
+@bot.command()
+async def 국방장관(ctx):
+    await ctx.send('나 국방장관이요')
+
+@bot.command()
+async def 참모총장(ctx):
+    await ctx.send('나 참모총장이요')
+
+@bot.command()
+async def 배(ctx):
+    await ctx.send('배도 잘만들고')
+
+@bot.command()
+async def 결혼하자(ctx):
+    await ctx.send('예아 안 될 거 뭐 있어요 씨발놈아')
+
+@bot.command()
+async def 사귀자(ctx):
+    await ctx.send('ㄷㄷ')
+
+@bot.command()
+async def 간질간질(ctx):
+    await ctx.send('으 으흣 으헛 우흥~')
+
+@bot.command()
+async def 애교(ctx):
+    await ctx.send('어 꺼져')
+
+@bot.command()
+async def 예뻐(ctx):
+    await ctx.send('아...')
+
+@bot.command()
+async def 딱대(ctx):
+    await ctx.send('미친놈')
+
+@bot.command()
+async def 가버렷(ctx):
+    await ctx.send('응 너 혼자 잘가~')
+
+@bot.command()
+async def 맛있어(ctx):
+    await ctx.send('뭐가 맛있어 미친놈아')
+
+@bot.command()
+async def 벌려(ctx):
+    await ctx.send('아~')
+
+@bot.command()
+async def 뭐시여(ctx):
+    await ctx.send('예?')
+
+@bot.command()
+async def 뭐여(ctx):
+    await ctx.send('머래노')
+
+@bot.command()
+async def 건전(ctx):
+    await ctx.send('지')
+
+@bot.command()
+async def 음란(ctx):
+    await ctx.send('안돼요!')
+
+@bot.command()
+async def 갸우뚱(ctx):
+    await ctx.send('크시세요?')
+
+@bot.command()
+async def 크시따라해봐(ctx):
+    await ctx.send('(갸우뚱)')
+
+@bot.command()
+async def 히토미(ctx):
+    await ctx.send('hitomi 사랑해')
+
+@bot.command()
+async def 나이(ctx):
+    await ctx.send('2020년생이에요!')
+
+@bot.command()
+async def 응애(ctx):
+    await ctx.send('응애 나 아기 파이드')
+
+@bot.command()
+async def 생일(ctx):
+    await ctx.send('2020년 12월 22일 화요일!')
+
+@bot.command()
+async def 혈액형(ctx):
+    await ctx.send('B형!')
 
 
 

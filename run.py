@@ -892,10 +892,6 @@ async def 응애(ctx):
 async def 생일(ctx):
     await ctx.send('2020년 12월 22일 화요일!')
 
-@bot.command()
-async def 혈액형(ctx):
-    await ctx.send('B형!')
-
 
 
 bot.run(w)

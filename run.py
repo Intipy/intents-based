@@ -892,6 +892,30 @@ async def 응애(ctx):
 async def 생일(ctx):
     await ctx.send('2020년 12월 22일 화요일!')
 
+@bot.command()
+async def 피아제(ctx):
+    await ctx.send('아!내가 받았다.')
+
+@bot.command()
+async def 공중제비(ctx):
+    await ctx.send('휘리릭')
+
+@bot.command()
+async def 나빠(ctx):
+    await ctx.send('미안해...')
+
+@bot.command()
+async def 김재규(ctx):
+    await ctx.send('재규어 열사님 화이팅!')
+
+@bot.command()
+async def 피아노(ctx):
+    await ctx.send('피아누 너무 재밌어요!')
+
+@bot.command()
+async def 죽어(ctx):
+    await ctx.send('너무해요...')
+
 
 
 bot.run(w)

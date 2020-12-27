@@ -248,9 +248,9 @@ async def 노짱(ctx):
 async def 누(ctx):
     await ctx.send('누스페이스ㅋㅋㅋㅋㅋ 누이즈ㅋㅋㅋㅋ 누텔라ㅋㅋㅋㅋㅋ')
 
-@bot.command()
-async def 이름성(ctx):
-    await ctx.send('저의 주인님입니다만...? wwwwwwwwwww')
+@bot.command(aliases=['TV샌즈'])
+async def tv샌즈(ctx):
+    await ctx.send('제 주인님이에요!')
 
 @bot.command()
 async def 길우진(ctx):
@@ -352,27 +352,11 @@ async def 야갤(ctx):
 async def 중갤(ctx):
     await ctx.send('중세 근첩 마이너 갤러리')
 
-@bot.command()
+@bot.command(aliases=['병신tv', 'tv병신', 'TV병신'])
 async def 병신TV(ctx):
     await ctx.send('근첩 진지충 새끼 ㅗㅗㅗㅗ')
 
-@bot.command()
-async def TV병신(ctx):
-    await ctx.send('근첩 진지충 새끼 ㅗㅗㅗㅗ')
-
-@bot.command()
-async def 병신tv(ctx):
-    await ctx.send('근첩 진지충 새끼 ㅗㅗㅗㅗ')
-
-@bot.command()
-async def tv병신(ctx):
-    await ctx.send('근첩 진지충 새끼 ㅗㅗㅗㅗ')
-
-@bot.command()
-async def 샌즈tv(ctx):
-    await ctx.send('존망함')
-
-@bot.command()
+@bot.command(alieses=['샌즈tv'])
 async def 샌즈TV(ctx):
     await ctx.send('존망함')
 

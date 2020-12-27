@@ -7,6 +7,10 @@ from discord.ext.commands import bot
 w = 'NzkwODQ2MTM1MzIxMjMxMzgx.X-Gi2w.wd8kpfrRxsrJVKvGISXl8ICgzq'+'U'
 bot = commands.Bot(command_prefix = '파이드 ') 
 
+@bot.event
+async def on_ready():
+    await client.change_presence(activity=discord.Game(name="파이드와 노는 방법을 보려면-->파이드 도움말"))
+
 
 @bot.command()
 async def 도움말(ctx):

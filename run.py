@@ -900,9 +900,17 @@ async def 피아노(ctx):
 async def 따랑해(ctx):
     await ctx.send('싫어요!')
 
-@bot.command(aliases = ['5월23일', '5월 23일'])
+@bot.command(aliases = ['5월23일'])
 async def 오월이십삼일(ctx):
     await ctx.send('노무현 전 대통령 서거일이에요!')
+
+@bot.command(aliases=['523'])
+async def 오이삼(ctx):
+    await ctx.send('중력!')
+
+@bot.command(aliases=['5시23분'])
+async def 다섯시이십삼분(ctx):
+    await ctx.send('중력시네요!')
 
 
 

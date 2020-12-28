@@ -516,7 +516,7 @@ async def 핥(ctx):
 async def 핥핥(ctx):
     await ctx.send('병신')
 
-@bot.command(aliases=['라면 먹고 갈래?', '라면먹고갈래?', '라면먹고 갈래?', '라면 먹고갈래?'])
+@bot.command(aliases=['라면먹고갈래?'])
 async def 라면먹고갈래(ctx):
     await ctx.send('택배로 보내')
 
@@ -868,7 +868,7 @@ async def 히토미(ctx):
 async def 나이(ctx):
     await ctx.send('2020년생이에요!')
 
-@bot.command()
+@bot.command(aliases=['1시다'])
 async def 응애(ctx):
     await ctx.send('응애 나 아기 파이드')
 

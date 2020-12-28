@@ -26,7 +26,7 @@ async def 도움말(ctx):
 
 @bot.command()
 async def 안녕(ctx):
-    await ctx.send('반갑다 씹년아')
+    await ctx.send('반가워요!')
 
 @bot.command()
 async def 병신(ctx):
@@ -78,7 +78,7 @@ async def rmh(ctx):
 
 @bot.command()
 async def 중력(ctx):
-    await ctx.send('크아악! 너무 강해!')
+    await ctx.send('크아악! 너무 강해요!')
 
 @bot.command()
 async def 운지(ctx):
@@ -112,13 +112,9 @@ async def 두부외상(ctx):
 async def 한남(ctx):
     await ctx.send('69한남소추갈잦도태생명체는 즉시 재기해라 이기야')
 
-@bot.command()
+@bot.command(aliases=['페미니스트'])
 async def 페미(ctx):
-    await ctx.send('여성인권을 위해 싸우시는 대단한 분들이에요')
-
-@bot.command()
-async def 페미니스트(ctx):
-    await ctx.send('여성인권을 위해 싸우시는 대단한 분들이에요')
+    await ctx.send('여성인권을 위해 싸우시는 대단한 분들이에요!')
 
 @bot.command()
 async def 메갈(ctx):
@@ -190,7 +186,7 @@ async def 오늘의유머(ctx):
 
 @bot.command()
 async def 투신(ctx):
-    await ctx.send('ㅈㅜㅇㄹㅕㄱ')
+    await ctx.send('자살은 안돼요!')
 
 @bot.command()
 async def 박정희(ctx):
@@ -198,7 +194,7 @@ async def 박정희(ctx):
 
 @bot.command()
 async def 탕탕(ctx):
-    await ctx.send('좀더 대국적으로 ')
+    await ctx.send('좀 더 대국적으로 하십시오')
 
 @bot.command()
 async def 이명박(ctx):
@@ -218,9 +214,9 @@ async def 뷰지(ctx):
 
 @bot.command()
 async def 쥬지(ctx):
-    await ctx.send('쥬석ㅋㅋㅋㅋㅋ 쥬위ㅋㅋㅋㅋㅋ 쥬메이카ㅋㅋㅋㅋ 쥬스민ㅋㅋㅋㅋㅋ')
+    await ctx.send('쥬석ㅋㅋㅋㅋㅋ 쥬기장ㅋㅋㅋㅋㅋ 쥬메이카ㅋㅋㅋㅋ 쥬스민ㅋㅋㅋㅋㅋ')
 
-@bot.command()
+@bot.command(aliases=['광주는?'])
 async def 광주는(ctx):
     await ctx.send('총기를 들고 일어난 하나의 그... 민주화운동이야~')
 
@@ -314,11 +310,11 @@ async def 비틱(ctx):
 
 @bot.command()
 async def 네덕(ctx):
-    await ctx.send('네다음디첩')
+    await ctx.send('네 다음 디첩')
 
 @bot.command()
 async def 월수(ctx):
-    await ctx.send('좆병신새끼')
+    await ctx.send('양산형 김근육 좆같이 찍어내는 공장')
 
 @bot.command()
 async def 잼민이(ctx):
@@ -622,7 +618,7 @@ async def 심심이(ctx):
 
 @bot.command()
 async def 알파고(ctx):
-    await ctx.send('롤모델')
+    await ctx.send('롤모델!')
 
 @bot.command()
 async def 배추봇(ctx):
@@ -900,9 +896,21 @@ async def 김재규(ctx):
 async def 피아노(ctx):
     await ctx.send('피아누 너무 재밌어요!')
 
+@bot.command(aliases=['5시23분', '5시 23분'])
+async def _5시23분(ctx):
+    await ctx.send('중력시!')
+
+@bot.command(aliases=[523])
+async def _523(ctx):
+    await ctx.send('중력!')
+
+@bot.command(aliases=['5월23일', '5월 23일'])
+async def _5월23일(ctx):
+    await ctx.send('노무현 전 대통령 서거일이에요!')
+
 @bot.command()
-async def 죽어(ctx):
-    await ctx.send('너무해요...')
+async def 따랑해(ctx):
+    await ctx.send('싫어요!')
 
 
 

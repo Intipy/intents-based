@@ -868,7 +868,7 @@ async def 히토미(ctx):
 async def 나이(ctx):
     await ctx.send('2020년생이에요!')
 
-@bot.command(aliases=['1시다'])
+@bot.command()
 async def 응애(ctx):
     await ctx.send('응애 나 아기 파이드')
 
@@ -899,6 +899,10 @@ async def 피아노(ctx):
 @bot.command()
 async def 따랑해(ctx):
     await ctx.send('싫어요!')
+
+@bot.command(aliases = ['5월23일', '5월 23일'])
+async def 오월이십삼일(ctx):
+    await ctx.send('노무현 전 대통령 서거일이에요!')
 
 
 

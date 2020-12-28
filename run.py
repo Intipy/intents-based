@@ -905,8 +905,8 @@ async def _523(ctx):
     await ctx.send('중력!')
 
 @bot.command(aliases=['5월23일', '5월 23일'])
-async def _5월23일(ctx):
-    await ctx.send('노무현 전 대통령 서거일이에요!')
+async def _5월23일(question):
+    responses = ['노무현 전 대통령 서거일이에요!']
 
 @bot.command()
 async def 따랑해(ctx):

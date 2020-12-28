@@ -516,7 +516,7 @@ async def 핥(ctx):
 async def 핥핥(ctx):
     await ctx.send('병신')
 
-@bot.command()
+@bot.command(aliases=['라면 먹고 갈래?', '라면먹고갈래?', '라면먹고 갈래?', '라면 먹고갈래?'])
 async def 라면먹고갈래(ctx):
     await ctx.send('택배로 보내')
 
@@ -810,7 +810,7 @@ async def 사귀자(ctx):
 
 @bot.command()
 async def 간질간질(ctx):
-    await ctx.send('으 으흣 으헛 우흥~')
+    await ctx.send('으 으흣 으힉 우흥~')
 
 @bot.command()
 async def 애교(ctx):
@@ -818,7 +818,7 @@ async def 애교(ctx):
 
 @bot.command()
 async def 예뻐(ctx):
-    await ctx.send('아...')
+    await ctx.send('아... 네...')
 
 @bot.command()
 async def 딱대(ctx):
@@ -895,18 +895,6 @@ async def 김재규(ctx):
 @bot.command()
 async def 피아노(ctx):
     await ctx.send('피아누 너무 재밌어요!')
-
-@bot.command(aliases=['5시23분', '5시 23분'])
-async def _5시23분(ctx):
-    await ctx.send('중력시!')
-
-@bot.command(aliases=[523])
-async def _523(ctx):
-    await ctx.send('중력!')
-
-@bot.command(aliases=['5월23일', '5월 23일'])
-async def _5월23일(question):
-    responses = ['노무현 전 대통령 서거일이에요!']
 
 @bot.command()
 async def 따랑해(ctx):

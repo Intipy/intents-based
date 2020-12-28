@@ -848,11 +848,11 @@ async def 뭐여(ctx):
 async def 건전(ctx):
     await ctx.send('지')
 
-@bot.command()
+@bot.command(aliases=['음란물'])
 async def 음란(ctx):
     await ctx.send('안돼요!')
 
-@bot.command()
+@bot.command(aliases=['(갸우뚱)'])
 async def 갸우뚱(ctx):
     await ctx.send('크시세요?')
 
@@ -862,7 +862,7 @@ async def 크시따라해봐(ctx):
 
 @bot.command()
 async def 히토미(ctx):
-    await ctx.send('hitomi 사랑해')
+    await ctx.send('hitomi 사랑해요')
 
 @bot.command()
 async def 나이(ctx):
@@ -912,9 +912,49 @@ async def 오이삼(ctx):
 async def 다섯시이십삼분(ctx):
     await ctx.send('중력시네요!')
 
-@bot.command()
+@bot.command(aliases=['Skydra'])
 async def skydra(ctx):
     await ctx.send('야갤 네임드!')
+
+@bot.command()
+async def 성의없어(ctx):
+    await ctx.send('앞으론 잘 할게요...')
+
+@bot.command()
+async def 좌파(ctx):
+    await ctx.send('정치 성향에 대한 편견은 없어요!')
+
+@bot.command()
+async def 우파(ctx):
+    await ctx.send('우파루파!')
+
+@bot.command()
+async def 어머니(ctx):
+    await ctx.send('어쩌라고')
+
+@bot.command()
+async def 복(ctx):
+    await ctx.send('많이 받으세요!')
+
+@bot.command()
+async def 김유식(ctx):
+    await ctx.send('나쁜놈!')
+
+@bot.command(aliases=['디시인사이드', 'dcinside', 'dc인사이드'])
+async def 디시(ctx):
+    await ctx.send('싫어요!')
+
+@bot.command()
+async def 네이트판(ctx):
+    await ctx.send('능지 딸리는 병신 사이트라고 들었어요!')
+
+@bot.command(aliases=['트짹'])
+async def 트위터(ctx):
+    await ctx.send('트위터는 그저 하나의 음란물 클라우드이다 -존 로렌스')
+
+@bot.command()
+async def 서버(ctx):
+    await ctx.send('???: 서버 샀죠')
 
 
 

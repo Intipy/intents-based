@@ -912,6 +912,10 @@ async def 오이삼(ctx):
 async def 다섯시이십삼분(ctx):
     await ctx.send('중력시네요!')
 
+@bot.command()
+async def skydra(ctx):
+    await ctx.send('야갤 네임드!')
+
 
 
 bot.run(w)

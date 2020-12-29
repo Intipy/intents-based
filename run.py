@@ -1003,7 +1003,7 @@ async def 엉덩이(ctx):
     await ctx.send('좋아요!')
 
 @bot.command(aliases=['싫은데?'])
-async def 싫은ㅇ데(ctx):
+async def 싫은은데(ctx):
     await ctx.send('왜요')
 
 

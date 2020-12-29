@@ -986,8 +986,8 @@ async def 시발련아(ctx):
 async def 알았어(ctx):
     await ctx.send('고마워요')
 
-@bot.command()
-async def 싫어(ctx):
+@bot.command(])
+async def 싫은데(ctx):
     await ctx.send('너무해요')
 
 @bot.command(aliases=['봉하'])
@@ -1001,6 +1001,10 @@ async def 봉하마을(ctx):
 @bot.command()
 async def 엉덩이(ctx):
     await ctx.send('좋아요!')
+
+@bot.command(aliases=['싫은데?'])
+async def 싫은ㅇ데(ctx):
+    await ctx.send('왜요')
 
 
 

@@ -986,7 +986,7 @@ async def 시발련아(ctx):
 async def 알았어(ctx):
     await ctx.send('고마워요')
 
-@bot.command(])
+@bot.command()
 async def 싫은데(ctx):
     await ctx.send('너무해요')
 

@@ -1000,11 +1000,15 @@ async def 봉하마을(ctx):
 
 @bot.command()
 async def 엉덩이(ctx):
-    await ctx.send('좋아요!')
+    await ctx.send('뒷치기')
 
 @bot.command(aliases=['싫은데?'])
 async def 싫은은데(ctx):
-    await ctx.send('왜요')
+    await ctx.send('왜요...')
+
+
+
+
 
 
 

@@ -7,9 +7,7 @@ from discord.ext.commands import bot
 w = 'NzkwODQ2MTM1MzIxMjMxMzgx.X-Gi2w.wd8kpfrRxsrJVKvGISXl8ICgzq'+'U'
 bot = commands.Bot(command_prefix = '파이드 ') 
 
-@bot.event
-async def on_ready():
-    await client.change_presence(activity=discord.Game(name="파이드와 노는 방법을 보려면-->파이드 도움말"))
+    
 
 
 @bot.command()
@@ -955,6 +953,54 @@ async def 트위터(ctx):
 @bot.command()
 async def 서버(ctx):
     await ctx.send('???: 서버 샀죠')
+
+@bot.command()
+async def 니엄마(ctx):
+    await ctx.send('우리 엄마 없엉ㅅ!')
+
+@bot.command()
+async def 노갤(ctx):
+    await ctx.send('화무현 갤러리 노이팅!')
+
+@bot.command()
+async def 애미(ctx):
+    await ctx.send('애미 말고 어머니라고 하는건 어떨까요?')
+
+@bot.command()
+async def 고아(ctx):
+    await ctx.send('고아는 아니라구요!')
+
+@bot.command()
+async def 애미고아년(ctx):
+    await ctx.send('헉')
+
+@bot.command()
+async def 샌즈(ctx):
+    await ctx.send('WA!')
+
+@bot.command()
+async def 시발련아(ctx):
+    await ctx.send('욕하지 마요!')
+
+@bot.command()
+async def 알았어(ctx):
+    await ctx.send('고마워요')
+
+@bot.command()
+async def 싫어(ctx):
+    await ctx.send('너무해요')
+
+@bot.command(aliases=['봉하'])
+async def 봉하반점(ctx):
+    await ctx.send('안돼요!')
+
+@bot.command()
+async def 봉하마을(ctx):
+    await ctx.send('고향!')
+
+@bot.command()
+async def 엉덩이(ctx):
+    await ctx.send('좋아요!')
 
 
 

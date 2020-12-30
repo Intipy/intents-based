@@ -3,6 +3,8 @@ import asyncio
 import os
 from discord.ext import commands
 from discord.ext.commands import bot
+import random
+
 
 w = 'NzkwODQ2MTM1MzIxMjMxMzgx.X-Gi2w.wd8kpfrRxsrJVKvGISXl8ICgzq'+'U'
 bot = commands.Bot(command_prefix = '파이드 ') 
@@ -14,11 +16,11 @@ bot = commands.Bot(command_prefix = '파이드 ')
 async def 도움말(ctx):
     embed = discord.Embed(colour = 808000)
     embed.add_field(name='파이드와 대화하기', value='파이드 [하고 싶은 말] <--(ex: 파이드 사랑해)', inline=False)
+    embed.add_field(name='파이드의 기능들', value='파이드 명령어라고 해보세요!', inline=False)
     embed.add_field(name='파이드에게 대답 가르치기', value='파이드 배워라고 해보세요!', inline=False)
     embed.add_field(name='파이드가 대답을 안한다면?', value='오류보단 대답을 몰라서 못하는 경우가 많아요. 대답을 못한다면 대답을 가르쳐보세요!', inline=False)
     embed.add_field(name='파이드 업데이트', value='파이드는 매일 11시~12시 사이에 업데이트를 해요. 여러분이 가르친 말, 버그 수정 등이 적용돼요.', inline=False)
     embed.add_field(name='파이드 발전', value='파이드는 처음엔 할 수 있는 대답, 기능이 적지만 여러분이 가르친 대답과 업데이트를 통해 점점 발전해요', inline=False)
-    embed.add_field(name='파이드 오류 수정 문의', value='#파이드 오류:[문제점] <--(ex: 파이드 오류:오프라인)', inline=False)
     await ctx.send(embed=embed)
 
 
@@ -28,6 +30,341 @@ async def 배워(ctx):
     embed = discord.Embed(colour = 808000)
     embed.add_field(name='무엇을 배울까요?', value='[가르칠 말] [대답] <--(ex:기차는? 길어)', inline=False)
     await ctx.send(embed=embed)
+
+
+@bot.command()
+async def 명령어(ctx):
+    embed = discord.Embed(colour = 808000)
+    embed.add_field(name='파이드 주사위', value='1~6까지의 숫자가 나와요!', inline=False)
+    embed.add_field(name='파이드 동전', value='앞면, 또는 뒷면이 나와요!', inline=False)
+    embed.add_field(name='파이드 세로로엄준식', value='엄준식을 세로로 완성해드려요!', inline=False)
+    embed.add_field(name='파이드 명언', value='파이드가 명언을 읊어줘요!', inline=False)
+    await ctx.send(embed=embed)
+
+
+
+
+@bot.command()
+async def 주사위(ctx):
+   await ctx.send(random.randint(1,6))
+
+@bot.command()
+async def 동전(ctx):
+    if random.randint(1,2) == 1:
+        await ctx.send('앞면이 나왔네요!')
+
+    else:
+        await ctx.send('뒷면이 나왔네요!')
+
+@bot.command()
+async def 세로로엄준식(ctx):
+    embed = discord.Embed(colour = 808000)
+    embed.add_field(name='엄', value='ㅤ', inline=False)
+    embed.add_field(name='준', value='ㅤ', inline=False)
+    embed.add_field(name='식', value='ㅤ', inline=False)
+    await ctx.send(embed=embed)
+
+@bot.command()
+async def 명언(ctx):
+    if random.randint(1,100) == 1:
+        await ctx.send('길을 아는 것과 그 길을 걷는 것은 다르다.')
+
+    if random.randint(1,100) == 2:
+        await ctx.send('남의 불행 위에 내 행복을 쌓으면 남의 불행이 사라지는 순간 행복이 무너질 것이다.')
+
+    if random.randint(1,100) == 3:
+        await ctx.send('성공은 친구를 만들고 역경은 친구를 시험한다.')
+
+    if random.randint(1,100) == 4:
+        await ctx.send('모든 길의 끝은 발길을 돌리는 그 지점이다.')
+
+    if random.randint(1,100) == 5:
+        await ctx.send('당신이 죽어도 생명은 죽지 않는다.')
+
+    if random.randint(1,100) == 6:
+        await ctx.send('삶이 있는 한 희망은 있다.')
+
+    if random.randint(1,100) == 7:
+        await ctx.send('산다는것 그것은 치열한 전투이다. ')
+
+    if random.randint(1,100) == 9:
+        await ctx.send('하루에 3시간을 걸으면 7년 후에 지구를 한바퀴 돌 수 있다.')
+
+    if random.randint(1,100) == 10:
+        await ctx.send('언제나 현재에 집중할수 있다면 행복할것이다.')
+
+    if random.randint(1,100) == 11:
+        await ctx.send('진정으로 웃으려면 고통을 참아야하며 , 나아가 고통을 즐길 줄 알아야 해.')
+
+    if random.randint(1,100) == 12:
+        await ctx.send('신은 용기있는자를 결코 버리지 않는다.')
+
+    if random.randint(1,100) == 13:
+        await ctx.send('피할수 없으면 즐겨라.')
+
+    if random.randint(1,100) == 14:
+        await ctx.send('단순하게 살아라. 현대인은 쓸데없는 절차와 일 때문에 얼마나 복잡한 삶을 살아가는가?')
+
+    if random.randint(1,100) == 15:
+        await ctx.send('먼저 자신을 비웃어라. 다른 사람이 당신을 비웃기 전에.')
+
+    if random.randint(1,100) == 16:
+        await ctx.send('행복한 삶을 살기위해 필요한 것은 거의 없다.')
+
+    if random.randint(1,100) == 17:
+        await ctx.send('어리석은 자는 멀리서 행복을 찾고, 현명한 자는 자신의 발치에서 행복을 키워간다.')
+
+    if random.randint(1,100) == 18:
+        await ctx.send('한번의 실패와 영원한 실패를 혼동하지 마라.')
+
+    if random.randint(1,100) == 19:
+        await ctx.send('내일은 내일의 태양이 뜬다.')
+
+    if random.randint(1,100) == 20:
+        await ctx.send('행복은 습관이다. 그것을 몸에 지니라.')
+
+    if random.randint(1,100) == 21:
+        await ctx.send('평생 살 것처럼 꿈을 꾸어라.그리고 내일 죽을 것처럼 오늘을 살아라.')
+
+    if random.randint(1,100) == 22:
+        await ctx.send('1퍼센트의 가능성, 그것이 나의 길이다. -나폴레옹-')
+
+    if random.randint(1,100) == 23:
+        await ctx.send('통이 남기고 간 뒤를 보라! 고난이 지나면 반드시 기쁨이 스며든다.')
+
+    if random.randint(1,100) == 24:
+        await ctx.send('삶은 소유물이 아니라 순간 순간의 있음이다.')
+
+    if random.randint(1,100) == 25:
+        await ctx.send('나이가 60이다 70이다 하는 것으로 그 사람이 늙었다 젊었다 할 수 없다. 늙고 젊은 것은 그 사람의 신념이 늙었느냐 젊었느냐 하는데 있다.')
+
+    if random.randint(1,100) == 26:
+        await ctx.send('만약 우리가 할 수 있는 일을 모두 한다면 우리들은 우리자신에 깜짝 놀랄 것이다.')
+
+    if random.randint(1,100) == 27:
+        await ctx.send('눈물과 더불어 빵을 먹어 보지 않은 자는 인생의 참다운 맛을 모른다. ')
+
+    if random.randint(1,100) == 28:
+        await ctx.send('해야 할 것을 하라. 모든 것은 타인의 행복을 위해서, 동시에 특히 나의 행복을 위해서이다.')
+
+    if random.randint(1,100) == 29:
+        await ctx.send('사람이 여행을 하는 것은 도착하기 위해서가 아니라 여행하기 위해서이다. ')
+
+    if random.randint(1,100) == 30:
+        await ctx.send('재산을 잃은 사람은 많이 잃은 것이고, 친구를 잃은 사람은 더 많이 잃은 것이며, 용기를 잃은 사람은 모든것을 잃은 것이다.')
+
+    if random.randint(1,100) == 8:
+        await ctx.send('돈이란 바닷물과도 같다. 그것은 마시면 마실수록 목이 말라진다.')
+
+    if random.randint(1,100) == 31:
+        await ctx.send('이룰수 없는 꿈을 꾸고 이길수 없는 적과 싸우며, 이룰수 없는 사랑을 하고 견딜 수 없는 고통을 견디고, 잡을수 없는 저 하늘의 별도 잡자.')
+
+    if random.randint(1,100) == 32:
+        await ctx.send('작은 기회로 부터 종종 위대한 업적이 시작된다.')
+
+    if random.randint(1,100) == 33:
+        await ctx.send('인생이란 학교에는 불행 이란 훌륭한 스승이 있다. 그 스승 때문에 우리는 더욱 단련되는 것이다.')
+
+    if random.randint(1,100) == 34:
+        await ctx.send('세상은 고통으로 가득하지만 그것을 극복하는 사람들로도 가득하다.')
+
+    if random.randint(1,100) == 35:
+        await ctx.send('인간의 삶 전체는 단지 한 순간에 불과하다 . 인생을 즐기자.')
+
+    if random.randint(1,100) == 36:
+        await ctx.send('절대 어제를 후회하지 마라 . 인생은 오늘의 나 안에 있고 내일은 스스로 만드는 것이다')
+
+    if random.randint(1,100) == 37:
+        await ctx.send('삶이 그대를 속일지라도 슬퍼하거나 노하지 말아라 슬픈 날에 참고 견디라 . 즐거운 날은 오고야 말리니 마음은 미래를 바라느니 현재는 한없이 우울한것 모든건 하염없이 사라지나가 버리고 그리움이 되리니')
+
+    if random.randint(1,100) == 38:
+        await ctx.send('문제점을 찾지 말고 해결책을 찾으라.')
+
+    if random.randint(1,100) == 39:
+        await ctx.send('길을 잃는 다는 것은 곧 길을 알게 된다는 것이다.')
+
+    if random.randint(1,100) == 40:
+        await ctx.send('삶을 사는 데는 단 두가지 방법이 있다. 하나는 기적이 전혀 없다고 여기는 것이고 또 다른 하나는 모든 것이 기적이라고 여기는방식이다.')
+
+    if random.randint(1,100) == 41:
+        await ctx.send('당신 가슴 속 작은 사람은 언제 죽었는가?')
+
+    if random.randint(1,100) == 42:
+        await ctx.send('먼지 한톨이 잘 정비된 우주선을 폭파시킨다.')
+
+    if random.randint(1,100) == 43:
+        await ctx.send('성공으로 가는 엘리베이터는 고장입니다. 당신은 계단을 이용해야만 합니다. 한계단 한계단씩')
+
+    if random.randint(1,100) == 44:
+        await ctx.send('가난은 가난하다고 느끼는 곳에 존재한다.')
+
+    if random.randint(1,100) == 45:
+        await ctx.send('인생에 뜻을 세우는데 있어 늦은 때라곤 없다.')
+
+    if random.randint(1,100) == 46:
+        await ctx.send('인생을 다시 산다면 다음번에는 더 많은 실수를 저지르리라.')
+
+    if random.randint(1,100) == 47:
+        await ctx.send('우리는 두려움의 홍수에 버티기 위해서 끊임없이 용기의 둑을 쌓아야 한다. ')
+
+    if random.randint(1,100) == 48:
+        await ctx.send('겨울이 오면 봄이 멀지 않으리.')
+
+    if random.randint(1,100) == 49:
+        await ctx.send('엄준식은 하룻밤에 생기지 않았다.')
+
+    if random.randint(1,100) == 50:
+        await ctx.send('모든것들에는 나름의 경이로움과 심지어 어둠과 침묵이 있고 , 내가 어떤 상태에 있더라도 나는 그속에서 만족하는 법을 배운다.')
+
+    if random.randint(1,100) == 51:
+        await ctx.send('계단을 밟아야 계단 위에 올라설수 있다.')
+
+    if random.randint(1,100) == 52:
+        await ctx.send('고개 숙이지 마십시오. 세상을 똑바로 정면으로 바라보십시오.')
+
+    if random.randint(1,100) == 53:
+        await ctx.send('길이 끊겼는가? 뛰어라. 길이 막혔는가? 넘어라. 길이 없는가? 만들어라.')
+
+    if random.randint(1,100) == 54:
+        await ctx.send('대부분 사람 안의 마음은 연약하디 연약해 쉬이 부서지지만 이는 자신의 마음이 단단하지 않다는 증거이다.')
+
+    if random.randint(1,100) == 55:
+        await ctx.send('죽은 시체 위에서 밥을 배불리 먹을수 있으랴.')
+
+    if random.randint(1,100) == 56:
+        await ctx.send('꿈은 산보다 높고 하늘보다 높으며 우주보다 높다. 한가지 다행인점은 떨어져도 다시 오를 수 있다는 것이다.')
+
+    if random.randint(1,100) == 57:
+        await ctx.send('지상과 지하의 다른점은 빛이 있느냐 없느냐가 아닌 빛이 올 것이라 믿느냐이다.')
+
+    if random.randint(1,100) == 58:
+        await ctx.send('발등 위 무릎보단 저멀리 손가락이 발등에 닿는 법이다.')
+
+    if random.randint(1,100) == 59:
+        await ctx.send('당신이 모든걸 잃는다면, 당신은 죽은것이 아니라 그저 다시 태어났을 뿐이다.')
+
+    if random.randint(1,100) == 60:
+        await ctx.send('내 안에서 불타는 투지는 무엇보다 뜨거워 어떤 공포로 얼어붙은 마음이든 녹일 수 있다.')
+
+    if random.randint(1,100) == 61:
+        await ctx.send('기름보단 물이 깨끗하지만, 그렇다고 비싼건 아니다.')
+
+    if random.randint(1,100) == 62:
+        await ctx.send('청렴이라는 허상은 청렴을 요구하는 사람들의 비디오게임에서나 가능하다.')
+
+    if random.randint(1,100) == 63:
+        await ctx.send('의외로 불꽃 안이 덜 뜨거운 법이다.')
+
+    if random.randint(1,100) == 64:
+        await ctx.send('태풍의 눈이 고요하다고 그곳에 쉽게 갈 수 있는가? 완벽히 아니다. ')
+
+    if random.randint(1,100) == 65:
+        await ctx.send('깨끗한 물이 흐르면 소리가 잘 들리지만 더러운 구정물이 흐르면 냄새만 날 뿐이다.')
+
+    if random.randint(1,100) == 66:
+        await ctx.send('떨어질 때가 가장 많은 생각이 들 것이다.')
+
+    if random.randint(1,100) == 67:
+        await ctx.send('내 인생은 완벽한 각본대로 움직이는 완벽한 쇼였고 나는 만족한다고 생각하는 것이 내가 하는 연기이다.')
+
+    if random.randint(1,100) == 68:
+        await ctx.send('죽었지만 살아있는 땅을 기는 인생, 얼마나 비참한가. 나는 그것을 사람의 살을 뜯어먹는 좀비라 부른다. 의외로 좀비가 실존한다는걸 아는가?')
+
+    if random.randint(1,100) == 69:
+        await ctx.send('되찾을 수 없는게 세월이니 시시한 일에 시간을 낭비하지 말고 순간순간을 후회 없이 잘 살아야 한다.')
+
+    if random.randint(1,100) == 70:
+        await ctx.send('너에게 아무도 시간을 팔지 않는다. 마찬가지로 니가 팔 수도 없다. 그저 이용할 뿐이다.')
+
+    if random.randint(1,100) == 71:
+        await ctx.send('니 영화는 최악이야. 재미가 없지. 아무도 거들떠 보지 않아. 대부분의 사람의 인생은 이런 영화와 같다.')
+
+    if random.randint(1,100) == 72:
+        await ctx.send('신념에 있어 옳고 그름은 신만이 판단할 수 있다')
+
+    if random.randint(1,100) == 73:
+        await ctx.send('그대 자신의 영혼을 탐구하라.')
+
+    if random.randint(1,100) == 74:
+        await ctx.send('꿈을 계속 간직하고 있으면 반드시 실현할 때가 온다.')
+
+    if random.randint(1,100) == 75:
+        await ctx.send('화려한 일을 추구하지 말라. 중요한 것은 스스로의 재능이며, 자신의 행동에 쏟아 붓는 사랑의 정도이다.')
+
+    if random.randint(1,100) == 76:
+        await ctx.send('흔히 사람들은 기회를 기다리고 있지만 기회는 기다리는 사람에게 잡히지 않는 법이다. ')
+
+    if random.randint(1,100) == 77:
+        await ctx.send('너 자신을 알라.')
+
+    if random.randint(1,100) == 78:
+        await ctx.send('무언가를 모른다면 자신에게 거짓말을 하지말라. 그저 배울 뿐이다.')
+
+    if random.randint(1,100) == 79:
+        await ctx.send('당신의 인생은 성공했는가? 그렇다면 얼마에 팔 수 있는가? 당신의 목숨값보다 귀하다면 그것은 성공한 것이다.')
+
+    if random.randint(1,100) == 80:
+        await ctx.send('세상을 향해 질문을 하면 당연히 대답해 줄 거라고 생각지 마라. 그것은 어린아이와 같은 유치한 생각이다.')
+
+    if random.randint(1,100) == 81:
+        await ctx.send('사람들은 진실을 말해주지 않는다. 그들이 말하는 것은 자신에게 유리한 것일 뿐,진위는 모르는 것이다. 스스로 찾아라.')
+
+    if random.randint(1,100) == 82:
+        await ctx.send('사회는 장난이 아니다. 진검승부다. 죽음과 연결된다. 그것을 바로 인식하지 못하면 무엇도 해낼 수 없다. 언제나 낙오자이며 사회 부적합자일 뿐이다.')
+
+    if random.randint(1,100) == 83:
+        await ctx.send('현재를 즐겨라.')
+
+    if random.randint(1,100) == 84:
+        await ctx.send('돈은 목숨보다 중하다.')
+
+    if random.randint(1,100) == 85:
+        await ctx.send('네 눈물은 그저 물이다. 그 뿐이다.')
+
+    if random.randint(1,100) == 86:
+        await ctx.send('니 어리광을 받아주는건 살아있지 못한 것 뿐일것이다.')
+
+    if random.randint(1,100) == 87:
+        await ctx.send('당신의 죽음의 가치는 그저 사람 하나, 그 정도다. 그 가치를 올린다면 당신은 죽어도 죽지 않을 것이다.')
+
+    if random.randint(1,100) == 88:
+        await ctx.send('독을 탄 진수성찬보다 선의로 보이는 사탕 하나를 조심하라')
+
+    if random.randint(1,100) == 89:
+        await ctx.send('목숨은 두번째다. 첫번째는 인생이다.')
+
+    if random.randint(1,100) == 90:
+        await ctx.send('벌레 인생은 벌레를 잡아봐야 그저 벌레다.')
+
+    if random.randint(1,100) == 91:
+        await ctx.send('천사가 내려와 금과 지혜 중 고르라하면 무엇을 가져야하는가? 천사를 쓰러트려서라도 모두 가져가라. 빼앗고 얻는 것이 인생이다.')
+
+    if random.randint(1,100) == 92:
+        await ctx.send('죽음보단 죽은 삶이 무서운 법이다.')
+
+    if random.randint(1,100) == 93:
+        await ctx.send('바닥을 닦아도 바닥은 바닥이다.')
+
+    if random.randint(1,100) == 94:
+        await ctx.send('돋보기로 뭔가를 보면 크게 잘보인다. 하지만 시야를 잃는다. 이 시야가 무엇보다 중할 떄가 소리 없이 온다. 이득이 아니라 인생을 보라.')
+
+    if random.randint(1,100) == 95:
+        await ctx.send('나무가 아니라 숲을 보라지만 나무 하나를 진득히 바라봐야 할 때가 있는 법이다.')
+
+    if random.randint(1,100) == 96:
+        await ctx.send('뒤를 보면 잡힌다.')
+
+    if random.randint(1,100) == 97:
+        await ctx.send('기회는 놀이동산의 출구이다. 다시 돌아와도 열리지 않는 문이다.')
+
+    if random.randint(1,100) == 98:
+        await ctx.send('지구 위에 기회는 얼마든지 있다. 하지만 단언컨대 그걸 믿지 못하는 사람에게 기회는 쉽게 토라져 등돌린다.')
+
+    if random.randint(1,100) == 99:
+        await ctx.send('목소리는 섞이면 그저 소음이다. 하지만 합창단은 사람의 마음을 움직이는 법이다.')
+
+    if random.randint(1,100) == 100:
+        await ctx.send('인생이 망했다고 생각하는가? 그렇다면 당신의 인생은 망했고, 망할 것이며, 망해야 할 것이다.')
 
 
 @bot.command()
@@ -1018,6 +1355,13 @@ async def 싫은은데(ctx):
 async def 오레가사바크(ctx):
     await ctx.send('오크님을 응원합니다')
 
+@bot.command()
+async def 니얼굴(ctx):
+    await ctx.send('잘생김')
+
+@bot.command()
+async def 당벅(ctx):
+    await ctx.send('동생이나 형이나 병신')
 
 
 

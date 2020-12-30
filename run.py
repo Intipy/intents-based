@@ -1006,6 +1006,9 @@ async def 엉덩이(ctx):
 async def 싫은은데(ctx):
     await ctx.send('왜요...')
 
+@bot.command()
+async def 오레가사바크(ctx):
+    await ctx.send('오크님을 응원합니다')
 
 
 

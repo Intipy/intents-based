@@ -9,6 +9,13 @@ import random
 w = 'NzkwODQ2MTM1MzIxMjMxMzgx.X-Gi2w.wd8kpfrRxsrJVKvGISXl8ICgzq'+'U'
 bot = commands.Bot(command_prefix = '파이드 ') 
 
+@bot.event
+async def on_ready():
+    print("다음으로 로그인합니다 : ")
+    print(bot.user.name)
+    print(bot.user.id)
+    print("==========")
+    await bot.change_presence(game=discord.Game(name="파이드 도움말 이라고 해보세요!", type=1))
     
 
 
@@ -20,7 +27,6 @@ async def 도움말(ctx):
     embed.add_field(name='파이드에게 대답 가르치기', value='파이드 배워라고 해보세요!', inline=False)
     embed.add_field(name='파이드가 대답을 안한다면?', value='오류보단 대답을 몰라서 못하는 경우가 많아요. 대답을 못한다면 대답을 가르쳐보세요!', inline=False)
     embed.add_field(name='파이드 업데이트', value='파이드는 매일 11시~12시 사이에 업데이트를 해요. 여러분이 가르친 말, 버그 수정 등이 적용돼요.', inline=False)
-    embed.add_field(name='파이드 발전', value='파이드는 처음엔 할 수 있는 대답, 기능이 적지만 여러분이 가르친 대답과 업데이트를 통해 점점 발전해요', inline=False)
     await ctx.send(embed=embed)
 
 
@@ -28,7 +34,7 @@ async def 도움말(ctx):
 @bot.command()
 async def 배워(ctx):
     embed = discord.Embed(colour = 808000)
-    embed.add_field(name='무엇을 배울까요?', value='[가르칠 말] [대답] <--(ex:기차는? 길어)', inline=False)
+    embed.add_field(name='무엇을 배울까요?', value='[가르칠 말] [대답] <--(ex:엄준식 화이팅)', inline=False)
     await ctx.send(embed=embed)
 
 
@@ -86,6 +92,9 @@ async def 명언(ctx):
 
     if random.randint(1,100) == 7:
         await ctx.send('산다는것 그것은 치열한 전투이다. ')
+
+    if random.randint(1,100) == 8:
+        await ctx.send('돈이란 바닷물과도 같다. 그것은 마시면 마실수록 목이 말라진다.')
 
     if random.randint(1,100) == 9:
         await ctx.send('하루에 3시간을 걸으면 7년 후에 지구를 한바퀴 돌 수 있다.')
@@ -152,9 +161,6 @@ async def 명언(ctx):
 
     if random.randint(1,100) == 30:
         await ctx.send('재산을 잃은 사람은 많이 잃은 것이고, 친구를 잃은 사람은 더 많이 잃은 것이며, 용기를 잃은 사람은 모든것을 잃은 것이다.')
-
-    if random.randint(1,100) == 8:
-        await ctx.send('돈이란 바닷물과도 같다. 그것은 마시면 마실수록 목이 말라진다.')
 
     if random.randint(1,100) == 31:
         await ctx.send('이룰수 없는 꿈을 꾸고 이길수 없는 적과 싸우며, 이룰수 없는 사랑을 하고 견딜 수 없는 고통을 견디고, 잡을수 없는 저 하늘의 별도 잡자.')
@@ -1363,7 +1369,37 @@ async def 니얼굴(ctx):
 async def 당벅(ctx):
     await ctx.send('동생이나 형이나 병신')
 
+@bot.command()
+async def 워마드(ctx):
+    await ctx.send('려성인권단체워마드힘내세요연대합시다')
 
+@bot.command()
+async def 싸우자(ctx):
+    await ctx.send('반월동으로 와라 ㅋㅋ')
+
+@bot.command()
+async def 브베(ctx):
+    await ctx.send('브베입니당')
+
+@bot.command()
+async def 고무통(ctx):
+    await ctx.send('대령 전현무 노고통')
+
+@bot.command()
+async def 느개비(ctx):
+    await ctx.send('응 느개비 따개비 바람개비~')
+
+@bot.command()
+async def 유치해(ctx):
+    await ctx.send('응 아니거등~ 너가 너 유치하거등~')
+
+@bot.command()
+async def 멍청해(ctx):
+    await ctx.send('똑똑해요!')
+
+@bot.command()
+async def 엄마도(ctx):
+    await ctx.send('흒먼이야')
 
 
 

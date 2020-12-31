@@ -8,17 +8,7 @@ import random
 
 w = 'NzkwODQ2MTM1MzIxMjMxMzgx.X-Gi2w.wd8kpfrRxsrJVKvGISXl8ICgzq'+'U'
 bot = commands.Bot(command_prefix = '파이드 ') 
-
-@bot.event
-async def on_ready():
-    print("다음으로 로그인합니다 : ")
-    print(bot.user.name)
-    print(bot.user.id)
-    print("==========")
-    await bot.change_presence(game=discord.Game(name="파이드 도움말 이라고 해보세요!", type=1))
     
-
-
 @bot.command()
 async def 도움말(ctx):
     embed = discord.Embed(colour = 808000)

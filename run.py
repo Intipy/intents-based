@@ -84,9 +84,13 @@ async def 느금(ctx):
 async def 느금마(ctx):
     await ctx.send('어 니애미~')
 
-@bot.command(aliases=['좆까', '좆가', '족까'])
+@bot.command(aliases=['좃까', '좆가', '족까','좃가','족가'])
 async def 좆까(ctx):
     await ctx.send('니 좆이나 까 소추새끼야~')
+
+@bot.command(aliases=['은아니매','응아니메','응아니매'])
+async def 은아니메(ctx):
+    await ctx.send('은 마즈메')
 
 @bot.command()
 async def 노무현(ctx):

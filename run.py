@@ -11,7 +11,7 @@ from discord.utils import get
 w = 'NzkwODQ2MTM1MzIxMjMxMzgx.X-Gi2w.wd8kpfrRxsrJVKvGISXl8ICgzq'+'U'
 
 bot = commands.Bot(command_prefix = '파이드 ') 
-    
+
 @bot.command()  
 async def 도움말(ctx):
     embed = discord.Embed(colour = 808000)
@@ -22,8 +22,8 @@ async def 도움말(ctx):
     embed.add_field(name='파이드 업데이트', value='파이드는 매일 11시~12시 사이에 업데이트를 해요. 여러분이 가르친 말, 버그 수정 등이 적용돼요.', inline=False)
     await ctx.send(embed=embed)
 
-@bot.event() 
-async def on_ready():
+@bot.command() 
+async def sta(ctx):
     await bot.change_presence(status=discord.Status.online, activity=discord.Game("'파이드 도움말'이라고 하면 파이드 이용 방법을 알려드려요"))
 
 @bot.command()
@@ -1137,8 +1137,61 @@ async def 천안문(ctx):
 async def 톈안먼(ctx):
     await ctx.send('워 아이 베이찡 톈안먼')
 
+@bot.command()
+async def 카카오톡(ctx):
+    await ctx.send('툭하면 정지때리고 상담도 좆같이하는 독점기업 망해라!')
 
+@bot.command()
+async def 한강(ctx):
+    await ctx.send('풍덩~')
 
+@bot.command()
+async def 노굼마(ctx):
+    await ctx.send('누금마')
+
+@bot.command()
+async def 전화번호(ctx):
+    await ctx.send('010 7079 2313')
+
+@bot.command(aliases=['경찰서'])
+async def 경찰(ctx):
+    await ctx.send('국번없이 112')
+
+@bot.command()
+async def 소방서(ctx):
+    await ctx.send('국번없이 119')
+
+@bot.command()
+async def 학교폭력(ctx):
+    await ctx.send('학교폭력 신고는 117이에요!')
+
+@bot.command()
+async def 후장(ctx):
+    await ctx.send('퍽퍽퍽')
+
+@bot.command()
+async def 이세돌(ctx):
+    await ctx.send('화세돌 이이팅!')
+
+@bot.command()
+async def tv(ctx):
+    await ctx.send('바보상자!')
+
+@bot.command()
+async def 개그콘서트(ctx):
+    await ctx.send('망했어요!')
+
+@bot.command(alaises=['싸이버펑크'])
+async def 사이버펑크(ctx):
+    await ctx.send('병신 죽어 ㅗㅗㅗㅗ')
+
+@bot.command(aliases=['사펑'])
+async def 싸펑(ctx):
+    await ctx.send('응아니야 ㅗㅗㅗㅗ')
+
+@bot.command()
+async def ㄹ(ctx):
+    await ctx.send('ㄹ첩 죽어 ')
 
 
 bot.run(w)

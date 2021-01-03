@@ -6,6 +6,7 @@ import os
 from discord.ext import commands
 from discord.ext.commands import bot
 import random
+from discord.utils import get
 
 w = 'NzkwODQ2MTM1MzIxMjMxMzgx.X-Gi2w.wd8kpfrRxsrJVKvGISXl8ICgzq'+'U'
 
@@ -21,8 +22,8 @@ async def 도움말(ctx):
     embed.add_field(name='파이드 업데이트', value='파이드는 매일 11시~12시 사이에 업데이트를 해요. 여러분이 가르친 말, 버그 수정 등이 적용돼요.', inline=False)
     await ctx.send(embed=embed)
 
-@bot.command() 
-async def python_bot_status(ctx):
+@bot.event() 
+async def on_ready():
     await bot.change_presence(status=discord.Status.online, activity=discord.Game("'파이드 도움말'이라고 하면 파이드 이용 방법을 알려드려요"))
 
 @bot.command()

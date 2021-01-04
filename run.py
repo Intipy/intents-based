@@ -15,7 +15,7 @@ bot = commands.Bot(command_prefix = '파이드 ')
 @bot.command()  
 async def 도움말(ctx):
     embed = discord.Embed(colour = 808000)
-    embed.add_field(name='파이드와 대화하기', value='파이드 [하고 싶은 말] <--(ex: 파이드 사랑해)', inline=False)
+    embed.add_field(name='파이드와 대화하기', value='파이드 <하고 싶은 말> <--(ex: 파이드 사랑해)', inline=False)
     embed.add_field(name='파이드의 기능들', value='파이드 명령어라고 해보세요!', inline=False)
     embed.add_field(name='파이드에게 대답 가르치기', value='파이드 배워라고 해보세요!', inline=False)
     embed.add_field(name='파이드가 대답을 안한다면?', value='오류보단 대답을 몰라서 못하는 경우가 많아요. 대답을 못한다면 대답을 가르쳐보세요!', inline=False)
@@ -29,7 +29,7 @@ async def sta(ctx):
 @bot.command()
 async def 배워(ctx):
     embed = discord.Embed(colour = 808000)
-    embed.add_field(name='무엇을 배울까요?', value='[가르칠 말] [대답] <--(ex:엄준식 화이팅)', inline=False)
+    embed.add_field(name='무엇을 배울까요?', value='<가르칠 말> <대답> <--(ex:엄준식 화이팅)', inline=False)
     await ctx.send(embed=embed)
 
 @bot.command()
@@ -39,6 +39,7 @@ async def 명령어(ctx):
     embed.add_field(name='파이드 동전', value='앞면, 또는 뒷면이 나와요!', inline=False)
     embed.add_field(name='파이드 세로로엄준식', value='엄준식을 세로로 완성해드려요!', inline=False)
     embed.add_field(name='파이드 명언', value='파이드가 명언을 읊어줘요!', inline=False)
+    embed.add_field(name='파이드 가위바위보 <가위 or 바위 or 보>', value='파이드와 가위바위보를 해봐요! (ex: 파이드 가위바위보 바위)', inline=False)
     await ctx.send(embed=embed)
 
 rannum = ['1이 나왔어요!', '2가 나왔어요!', '3이 나왔어요!', '4가 나왔어요!', '5가 나왔어요!', '6이 나왔어요!']
@@ -535,7 +536,7 @@ async def 빨아(ctx):
 
 @bot.command()
 async def 때찌(ctx):
-    await ctx.send('흐에엥...')
+    await ctx.send('호에엥...')
 
 @bot.command()
 async def 나가(ctx):
@@ -1107,7 +1108,7 @@ async def 엄신(ctx):
 
 @bot.command()
 async def 게이(ctx):
-    await ctx.send('길우진')
+    await ctx.send('파이드는 성소수자 여러분을 응언함미다.')
 
 @bot.command()
 async def 노무현자서전(ctx):
@@ -1192,6 +1193,19 @@ async def 싸펑(ctx):
 @bot.command()
 async def ㄹ(ctx):
     await ctx.send('ㄹ첩 죽어 ')
+
+@bot.command()
+async def 가위바위보(ctx, user: str):
+    rsplist=["바위", "가위", "보"]
+    choice_bot=random.choice(rsplist)
+    if (choice_bot=="바위" and user=="가위") or (choice_bot=="가위" and user=="보") or (choice_bot=="보" and user=="바위"):
+        await ctx.send('내가 이겼다 븅신 존나 못하네ㅋㅋㅋ')
+    elif (choice_bot=="바위" and user=="보") or (choice_bot=="보" and user=="가위") or (choice_bot=="가위" and user=="바위"):
+        await ctx.send('졌다...')
+    elif (user!='바위') and (user!='가위') and (user!='보'):
+        await ctx.send('가위 바위 보 중에서 내라고 빡대갈아')
+    else:
+        await ctx.send('비김 ㅅㄱ')
 
 
 bot.run(w)

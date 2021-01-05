@@ -12,12 +12,21 @@ w = 'NzkwODQ2MTM1MzIxMjMxMzgx.X-Gi2w.wd8kpfrRxsrJVKvGISXl8ICgzq'+'U'
 
 bot = commands.Bot(command_prefix = '파이드 ') 
 
+@bot.event
+async def on_message(message):
+    await bot.process_commands(message)
+    if message.content.startswith("파이드 배워"):
+        await message.channel.send("대답을 배웠어요! 가르친 대답은 파이드가 공부해서 업데이트 시간('파이드 도움말' 참조)에 업데이트 돼요!")
+
+
+
 @bot.command()  
 async def 도움말(ctx):
     embed = discord.Embed(colour = 808000)
-    embed.add_field(name='파이드와 대화하기', value='파이드 <하고 싶은 말> <--(ex: 파이드 사랑해)', inline=False)
-    embed.add_field(name='파이드의 기능들', value='파이드 명령어라고 해보세요!', inline=False)
-    embed.add_field(name='파이드에게 대답 가르치기', value='파이드 배워라고 해보세요!', inline=False)
+    embed.add_field(name='파이드와 대화하기', value='파이드 <하고 싶은 말> (ex: 파이드 사랑해)', inline=False)
+    embed.add_field(name='파이드에게 대답 가르치기', value='파이드 배워 <가르칠 말> <대답> (ex: 파이드 배워 엄준식 화이팅)', inline=False)
+    embed.add_field(name='ㅤ', value="ㅤ", inline=False)
+    embed.add_field(name='파이드의 기능들', value="'파이드 명령어'라고 해보세요!", inline=False)
     embed.add_field(name='파이드가 대답을 안한다면?', value='오류보단 대답을 몰라서 못하는 경우가 많아요. 대답을 못한다면 대답을 가르쳐보세요!', inline=False)
     embed.add_field(name='파이드 업데이트', value='파이드는 매일 11시~12시 사이에 업데이트를 해요. 여러분이 가르친 말, 버그 수정 등이 적용돼요.', inline=False)
     await ctx.send(embed=embed)
@@ -25,12 +34,6 @@ async def 도움말(ctx):
 @bot.command() 
 async def sta(ctx):
     await bot.change_presence(status=discord.Status.online, activity=discord.Game("'파이드 도움말'이라고 하면 파이드 이용 방법을 알려드려요"))
-
-@bot.command()
-async def 배워(ctx):
-    embed = discord.Embed(colour = 808000)
-    embed.add_field(name='무엇을 배울까요?', value='<가르칠 말> <대답> <--(ex:엄준식 화이팅)', inline=False)
-    await ctx.send(embed=embed)
 
 @bot.command()
 async def 명령어(ctx):
@@ -70,6 +73,19 @@ mu = ['길을 아는 것과 그 길을 걷는 것은 다르다.','남의 불행 
 async def 명언(ctx):
     await ctx.send(mu[random.randint(0,99)])
 
+@bot.command()
+async def 가위바위보(ctx, user: str):
+    rsplist=["바위", "가위", "보"]
+    choice_bot=random.choice(rsplist)
+    if (choice_bot=="바위" and user=="가위") or (choice_bot=="가위" and user=="보") or (choice_bot=="보" and user=="바위"):
+        await ctx.send('내가 이겼다 븅신 존나 못하네ㅋㅋㅋ')
+    elif (choice_bot=="바위" and user=="보") or (choice_bot=="보" and user=="가위") or (choice_bot=="가위" and user=="바위"):
+        await ctx.send('졌다...')
+    elif (user!='바위') and (user!='가위') and (user!='보'):
+        await ctx.send('가위 바위 보 중에서 내라고 빡대갈아')
+    else:
+        await ctx.send('비김 ㅅㄱ')
+
 @bot.command(aliases=['안영','않영','않녕','앉영','앉녕'])
 async def 안녕(ctx):
     await ctx.send('반가워요!')
@@ -77,6 +93,10 @@ async def 안녕(ctx):
 @bot.command(aliases=['빙신', '븅신', '피융신'])
 async def 병신(ctx):
     await ctx.send('어 좆까~')
+
+@bot.command()
+async def 병슨(ctx):
+    await ctx.send('슨? 신고합니다.')
 
 @bot.command(aliases=['너검'])
 async def 느금(ctx):
@@ -1146,7 +1166,7 @@ async def 카카오톡(ctx):
 async def 한강(ctx):
     await ctx.send('풍덩~')
 
-@bot.command()
+@bot.command(aliases=['노군마', '노군머','노군매'])
 async def 노굼마(ctx):
     await ctx.send('누금마')
 
@@ -1195,17 +1215,13 @@ async def ㄹ(ctx):
     await ctx.send('ㄹ첩 죽어 ')
 
 @bot.command()
-async def 가위바위보(ctx, user: str):
-    rsplist=["바위", "가위", "보"]
-    choice_bot=random.choice(rsplist)
-    if (choice_bot=="바위" and user=="가위") or (choice_bot=="가위" and user=="보") or (choice_bot=="보" and user=="바위"):
-        await ctx.send('내가 이겼다 븅신 존나 못하네ㅋㅋㅋ')
-    elif (choice_bot=="바위" and user=="보") or (choice_bot=="보" and user=="가위") or (choice_bot=="가위" and user=="바위"):
-        await ctx.send('졌다...')
-    elif (user!='바위') and (user!='가위') and (user!='보'):
-        await ctx.send('가위 바위 보 중에서 내라고 빡대갈아')
-    else:
-        await ctx.send('비김 ㅅㄱ')
+async def AAA(ctx):
+    await ctx.send('건전지')
+
+
+
+
+
 
 
 bot.run(w)

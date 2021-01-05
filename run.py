@@ -106,11 +106,11 @@ async def 느금(ctx):
 async def 느금마(ctx):
     await ctx.send('어 니애미~')
 
-좆까 = ['니 좆이나 까 소추새끼야~', '봇이라 깔 좆도 없눈데? 에벱베베ㅔ', '응 아니야~ ㅋㅋ']
+gg = ['니 좆이나 까 소추새끼야~', '봇이라 깔 좆도 없눈데? 에벱베베ㅔ', '응 아니야~ ㅋㅋ']
 
 @bot.command(aliases=['좃까', '좆가', '족까','좃가','족가'])
 async def 좆까(ctx):
-    await ctx.send(좆까[random.randint(0,2)])
+    await ctx.send(gg[random.randint(0,2)])
 
 @bot.command(aliases=['은아니매','응아니메','응아니매'])
 async def 은아니메(ctx):

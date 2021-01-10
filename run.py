@@ -2,21 +2,158 @@
 
 import discord
 import asyncio
-import os
-from discord.ext import commands
+from discord.ext import commands, tasks
+from discord.voice_client import VoiceClient
 from discord.ext.commands import bot
 import random
 from discord.utils import get
+from bs4 import BeautifulSoup
+import urllib
+import os
+import youtube_dl
+from discord.utils import get
 
-w = 'NzkwODQ2MTM1MzIxMjMxMzgx.X-Gi2w.wd8kpfrRxsrJVKvGISXl8ICgzq'+'U'
+intents = discord.Intents.all()
 
-bot = commands.Bot(command_prefix = '파이드 ') 
+bot = commands.Bot(command_prefix = '파이드 ')
+
+token_path = os.path.dirname(os.path.abspath(__file__)) + "/token.txt"
+t = open(token_path, "r", encoding = 'utf-8')
+token = t.read().split()[0]
+
+client = bot
+
+
+
+
+
+
+youtube_dl.utils.bug_reports_message = lambda: ''
+
+ytdl_format_options = {
+    'format': 'bestaudio/best',
+    'outtmpl': '%(extractor)s-%(id)s-%(title)s.%(ext)s',
+    'restrictfilenames': True,
+    'noplaylist': True,
+    'nocheckcertificate': True,
+    'ignoreerrors': False,
+    'logtostderr': False,
+    'quiet': True,
+    'no_warnings': True,
+    'default_search': 'auto',
+    'source_address': '0.0.0.0' # bind to ipv4 since ipv6 addresses cause issues sometimes
+}
+
+ffmpeg_options = {
+    'options': '-vn'
+}
+
+ytdl = youtube_dl.YoutubeDL(ytdl_format_options)
+
+class YTDLSource(discord.PCMVolumeTransformer):
+    def __init__(self, source, *, data, volume=0.5):
+        super().__init__(source, volume)
+
+        self.data = data
+
+        self.title = data.get('title')
+        self.url = data.get('url')
+
+    @classmethod
+    async def from_url(cls, url, *, loop=None, stream=False):
+        loop = loop or asyncio.get_event_loop()
+        data = await loop.run_in_executor(None, lambda: ytdl.extract_info(url, download=not stream))
+
+        if 'entries' in data:
+            # take first item from a playlist
+            data = data['entries'][0]
+
+        filename = data['url'] if stream else ytdl.prepare_filename(data)
+        return cls(discord.FFmpegPCMAudio(filename, **ffmpeg_options), data=data)
+
+
+
+queue = []
+
+
+
+@client.command(name='재생목록추가', help='This command adds a song to the queue')
+async def queue_(ctx, url):
+    global queue
+
+    queue.append(url)
+    await ctx.send(f'`{url}` 가 재생목록에 추가되었어요!!')
+
+@client.command(name='재생목록지워', help='This command removes an item from the list')
+async def remove(ctx, number):
+    global queue
+
+    try:
+        del(queue[int(number)])
+        await ctx.send(f'현재 재생목록은 `{queue}!`')
+    
+    except:
+        await ctx.send('Your queue is either **empty** or the index is **out of range**')
+        
+@client.command()
+async def play(ctx):
+    global queue
+
+    server = ctx.message.guild
+    voice_channel = server.voice_client
+
+    async with ctx.typing():
+        player = await YTDLSource.from_url(queue[0], loop=client.loop)
+        voice_channel.play(player, after=lambda e: print('Player error: %s' % e) if e else None)
+
+    await ctx.send('**Now playing:** {}'.format(player.title))
+    del(queue[0])
+
+@client.command(name='재생목록', help='This command shows the queue')
+async def view(ctx):
+    await ctx.send(f'현재 재생목록은 `{queue}!`')
+
+@client.command(name='노래일시중지', help='This command pauses the song')
+async def pause(ctx):
+    server = ctx.message.guild
+    voice_channel = server.voice_client
+
+    voice_channel.pause()
+
+@client.command(name='노래계속', help='This command resumes the song!')
+async def resume(ctx):
+    server = ctx.message.guild
+    voice_channel = server.voice_client
+
+    voice_channel.resume()
+
+@client.command(name='노래멈춰', help='This command stops the song!')
+async def stop(ctx):
+    server = ctx.message.guild
+    voice_channel = server.voice_client
+
+    voice_channel.stop()
+
+
+
+
+wherror = ['뭐라는지 못 알아 먹겠어요!', '말을 똑바로 해주세요 병신아', '네? 잘 모르는 말인걸요?', '몰라 그게 뭔데']
+@bot.event
+async def on_command_error(ctx, error):
+    await ctx.send(wherror[random.randint(0,3)])
+
+
 
 @bot.event
 async def on_message(message):
     await bot.process_commands(message)
     if message.content.startswith("파이드 배워"):
         await message.channel.send("대답을 배웠어요! 가르친 대답은 파이드가 공부해서 업데이트 시간('파이드 도움말' 참조)에 업데이트 돼요!")
+
+@bot.event
+async def on_ready():
+    print("bot 레디")
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game("'파이드 도움말'이라고 하면 파이드 이용 방법을 알려드려요"))
 
 
 
@@ -27,13 +164,9 @@ async def 도움말(ctx):
     embed.add_field(name='파이드에게 대답 가르치기', value='파이드 배워 <가르칠 말> <대답> (ex: 파이드 배워 엄준식 화이팅)', inline=False)
     embed.add_field(name='ㅤ', value="ㅤ", inline=False)
     embed.add_field(name='파이드의 기능들', value="'파이드 명령어'라고 해보세요!", inline=False)
-    embed.add_field(name='파이드가 대답을 안한다면?', value='오류보단 대답을 몰라서 못하는 경우가 많아요. 대답을 못한다면 대답을 가르쳐보세요!', inline=False)
     embed.add_field(name='파이드 업데이트', value='파이드는 매일 11시~12시 사이에 업데이트를 해요. 여러분이 가르친 말, 버그 수정 등이 적용돼요.', inline=False)
     await ctx.send(embed=embed)
 
-@bot.command() 
-async def sta(ctx):
-    await bot.change_presence(status=discord.Status.online, activity=discord.Game("'파이드 도움말'이라고 하면 파이드 이용 방법을 알려드려요"))
 
 @bot.command()
 async def 명령어(ctx):
@@ -43,6 +176,19 @@ async def 명령어(ctx):
     embed.add_field(name='파이드 세로로엄준식', value='엄준식을 세로로 완성해드려요!', inline=False)
     embed.add_field(name='파이드 명언', value='파이드가 명언을 읊어줘요!', inline=False)
     embed.add_field(name='파이드 가위바위보 <가위 or 바위 or 보>', value='파이드와 가위바위보를 해봐요! (ex: 파이드 가위바위보 바위)', inline=False)
+    embed.add_field(name='파이드 따라해 <할 말>', value='파이드에게 말을 따라하게 해봐요! (ex: 파이드 따라해 앏뚫흝햁)', inline=False)
+    embed.add_field(name='ㅤ', value='ㅤ', inline=False)
+    embed.add_field(name='-------음악재생 명령어-------', value='ㅤ', inline=False)
+    embed.add_field(name='ㅤ', value='ㅤ', inline=False)
+    embed.add_field(name='파이드 음성채널으로', value='파이드를 음성채널으로 초대해요!', inline=False)
+    embed.add_field(name='파이드 음성채널나가', value='파이드를 음성채널에서 내보내요!', inline=False)
+    embed.add_field(name='파이드 재생목록추가 <유튜브 링크>', value='재생목록에 음악을 추가해요!', inline=False)
+    embed.add_field(name='파이드 재생목록지워 <번호>', value='재생목록에서 음악을 삭제해요! (0번 ~ n번)', inline=False)
+    embed.add_field(name='파이드 재생목록', value='현재 재생목록을 보여줘요!', inline=False)
+    embed.add_field(name='파이드 노래틀어', value='재생목록에서 음악을 재생해요!', inline=False)
+    embed.add_field(name='파이드 일시중지', value='음악재생을 잠시 멈춰요!', inline=False)
+    embed.add_field(name='파이드 노래계속', value='음악재생을 다시 시작해요!', inline=False)
+    embed.add_field(name='파이드 노래그만', value='재생중인 음악을 완전히 멈춰요!', inline=False)
     await ctx.send(embed=embed)
 
 rannum = ['1이 나왔어요!', '2가 나왔어요!', '3이 나왔어요!', '4가 나왔어요!', '5가 나왔어요!', '6이 나왔어요!']
@@ -86,9 +232,31 @@ async def 가위바위보(ctx, user: str):
     else:
         await ctx.send('비김 ㅅㄱ')
 
+@bot.command(name="따라해", pass_context=True)
+async def _saySame(ctx, *, args):
+    await ctx.send(args)
+
+
+
+@bot.command(name="음성채널으로", pass_context=True)
+async def _join(ctx):
+    if ctx.author.voice and ctx.author.voice.channel: 
+        channel = ctx.author.voice.channel 
+        await channel.connect() 
+    else: 
+        await ctx.send("채널에 유저가 없어 연결하지 못했어요!") 
+
+@bot.command(name="음성채널나가")
+async def _leave(ctx):
+    await bot.voice_clients[0].disconnect()
+
+
+
+hello = ['반가워요!', '네 안녕하세요!', '안녕~']
+
 @bot.command(aliases=['안영','않영','않녕','앉영','앉녕'])
 async def 안녕(ctx):
-    await ctx.send('반가워요!')
+        await ctx.send(hello[random.randint(0,2)])
 
 @bot.command(aliases=['빙신', '븅신', '피융신'])
 async def 병신(ctx):
@@ -1222,8 +1390,4 @@ async def AAA(ctx):
 
 
 
-
-
-
-
-bot.run(w)
+bot.run(token)

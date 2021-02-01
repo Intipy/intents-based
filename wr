@@ -1,0 +1,56 @@
+import requests
+from bs4 import BeautifulSoup
+import random
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time
+import urllib.request
+
+headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36'}
+
+
+def starts():
+
+    kk = random.randint(1, 8503399)
+
+    url = 'https://gall.dcinside.com/board/view/?id=baseball_new9&no='+str(kk)+'&page=1'
+
+    res = urllib.request.urlopen(url)
+    sta = res.status
+
+    if sta != 200:
+        kk = kk + 1
+        url = 'https://gall.dcinside.com/board/view/?id=baseball_new9&no='+str(kk)+'&page=1'
+
+
+    res = requests.get(url, headers=headers)
+
+    soup = BeautifulSoup(res.text, 'lxml')
+
+    title = soup.find('span', attrs = {'class':'title_subject'})
+
+    des = soup.find('div', attrs = {'class':'writing_view_box'})
+
+    t = title.get_text()
+
+    d = des.get_text()
+
+
+    driver = webdriver.Chrome()
+
+    ur = 'https://gall.dcinside.com/mini/board/write/?id=begun'
+    driver.get(ur)
+
+    driver.find_element_by_id('name').send_keys('ㅇㅇ')
+    driver.find_element_by_id('password').send_keys('shin5651')
+    driver.find_element_by_id('subject').send_keys(t)
+    driver.switch_to_frame(driver.find_element_by_id('tx_canvas_wysiwyg'))
+    driver.find_element_by_class_name('tx-content-container').send_keys(d + '.')
+    driver.switch_to_default_content()
+    driver.find_element_by_xpath('//*[@id="write"]/div[5]/button[2]').click()
+
+while 1 < 2:
+    time.sleep(60)
+    starts()
+
+

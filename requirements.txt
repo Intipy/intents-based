@@ -1,7 +1,0 @@
-discord.py
-asyncio
-PyNaCl
-beautifulsoup4
-youtube_dl
-urllib3
-

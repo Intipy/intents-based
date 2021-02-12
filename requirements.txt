@@ -1,6 +1,5 @@
 requests
 BeautifulSoup4
-time
 urllib
 lxml       
 selenium

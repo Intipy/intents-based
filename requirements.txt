@@ -1,8 +1,6 @@
 requests
 bs4 
-random
 time
 urllib
 lxml       
 selenium
-os

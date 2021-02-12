@@ -2,7 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 import random
 import time
-import urllib
 import lxml       
 from selenium import webdriver
 import os
@@ -13,8 +12,8 @@ options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:86
 options.add_argument('--headless')
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
-options.binary_location = os.environ.get("GOOGLE_CHROME_BIN.txt")
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH.txt"), options=options)
+options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=options)
 
 
 
@@ -95,3 +94,5 @@ while 1 < 2:
 
     except:
         pass
+
+

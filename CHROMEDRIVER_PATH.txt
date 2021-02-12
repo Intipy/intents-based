@@ -1,1 +1,0 @@
-/app/.chromedriver/bin/chromedriver

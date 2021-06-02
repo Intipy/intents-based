@@ -52,7 +52,7 @@ while 1 < 2:
         print('ㅡㅡㅡㅡㅡ게시물 작성 중ㅡㅡㅡㅡㅡ')
         print('ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ')
         driver = webdriver.Chrome(options=options) #크롬버젼과 맞는걸로
-        driver.get("https://gall.dcinside.com/mini/board/lists/?id=jaemmin") #갤러리 글쓰기 주소
+        driver.get("https://gall.dcinside.com/mgallery/board/lists/?id=lancablefriend") #갤러리 글쓰기 주소
         time.sleep(1)
         driver.find_element_by_xpath("/html/body/div[2]/div[2]/main/section[1]/article[2]/div[1]/div[3]/div/div[2]/a").click()
         driver.find_element_by_name('name').send_keys('ㅇㅇ')#닉네임

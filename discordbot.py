@@ -50,13 +50,13 @@ def bag_of_words(sentence):
         for i,word in enumerate(words):
             if word == w: 
                 bag[i] = 1
-    return np.array(bag)     # 넘파이 2차원 행렬 형태 0001000
+    return np.array(bag)     # 원 핫 인코딩
 
 
 
 def predict_class(sentence):
 
-    bow = bag_of_words(sentence)               # 넘파이 2차원 행렬 형태 0001000
+    bow = bag_of_words(sentence)               # 원 핫 인코딩
     res = model.predict(np.array([bow]))[0]    # intent 별로 확률을 예측함                                 
 
     ERROR_THRESHOLD = 0.25
@@ -69,7 +69,7 @@ def predict_class(sentence):
     
     if float(intent_prob_list[0]['probability']) < 0.98:
         print(intent_prob_list)
-        f = open('ErrorList.txt', 'a', encoding="UTF-8")
+        f = open('error.txt', 'a', encoding="UTF-8")
         f.write(sentence)
         f.write("\n")
         f.write(intent_prob_list[0]['intent'])

@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from discord.utils import get
 import json
 import random
 import pickle
@@ -66,28 +67,13 @@ def predict_class(sentence):
     intent_prob_list = []
     for r in results:
         intent_prob_list.append({"intent": classes[r[0]], "probability": str(r[1])})
-    
-    if float(intent_prob_list[0]['probability']) < 0.98:
-        print(intent_prob_list)
-        f = open('error.txt', 'a', encoding="UTF-8")
-        f.write(sentence)
-        f.write("\n")
-        f.write(intent_prob_list[0]['intent'])
-        f.write("\n")
-        f.write(intent_prob_list[0]['probability'])
-        f.write("\n")
-        f.write("------")
-        f.write("\n")
-    else:
-        print(intent_prob_list)
-    
+    print(intent_prob_list)
     return intent_prob_list    #intent_list -->  [{'intent': '인사', 'probability': '0.9999933'}]
 
 
 
 def getResponse(intents_list, intents_json):
-    
-    if float(intents_list[0]['probability']) < 0.98:
+    if float(intents_list[0]['probability']) < 0.6:
         error_result = "probability_low"
         return error_result
     
@@ -103,10 +89,8 @@ def getResponse(intents_list, intents_json):
 
 
 ########################
-
-
-
 client = commands.Bot(command_prefix=")")
+
 
 
 @client.event
@@ -115,11 +99,16 @@ async def on_ready():
     print("Bot Ready")
 
 
+
 @client.event
 async def on_message(message):
-    if message.author.bot:
+    if message.author.bot: 
         return None
+    
+    
     if message.content.startswith(")"):
+        
+        
         if message.content == ")도움말":
             embed=discord.Embed(title="឵ ឵ ឵឵ ឵ ឵឵ ឵ ឵឵ ឵ ឵", color=0x00ff56)
             embed.set_author(name="[ 파이드 도움말 ]", icon_url="https://cdn.discordapp.com/attachments/851075781413437474/851339042448605224/1.png")
@@ -127,11 +116,75 @@ async def on_message(message):
             embed.add_field(name="឵) 뒤에 하고싶은 말을 해보세요", value="- ឵ ឵឵ ឵ ឵`)안녕`", inline=False) 
             embed.add_field(name="파이드는 현재 영어를 지원하지 않습니다", value="- ឵ ឵឵ ឵ ឵`한글만 사용해주세요`", inline=False) 
             embed.add_field(name="឵파이드는 계속 학습 중입니다", value="`개발 초기 단계이며 아직 학습량이 적어 여러 오류나 부적절한 행동이 있을 수 있습니다(학습 상태를 참조해주세요)`", inline=False) 
-            embed.add_field(name="개발자", value="- ឵ ឵឵ ឵ `Intipy#2784`", inline=False) 
+            embed.add_field(name="개발자", value="- ឵ ឵឵ ឵ `Intipy#1111`", inline=False) 
             embed.add_field(name="개발 일자", value="- ឵ ឵឵ ឵ `2021.06.05.`", inline=False)  
             embed.add_field(name="파이드 공식 지원 서버", value="- ឵ ឵឵ ឵ https://discord.gg/yUQDS2sWZH", inline=False) 
-            embed.add_field(name="학습 상태", value="- ឵ ឵឵ ឵ `0.00000032 (매우 약함)`", inline=False) 
+            embed.add_field(name="학습 상태", value="- ឵ ឵឵ ឵ `0.00000032 (매우 약함)`", inline=False)
+            embed.add_field(name="메세지 관리", value="- ឵ ឵឵ ឵ `)도움말 메세지`", inline=False) 
             await message.channel.send(embed=embed)
+            
+            
+            
+        elif message.content == ")도움말 메세지":
+            embed=discord.Embed(title="឵ ឵ ឵឵ ឵ ឵឵ ឵ ឵឵ ឵ ឵", color=0x00ff56)
+            embed.set_author(name="[ 파이드 메세지 관리 도움말 ]", icon_url="https://cdn.discordapp.com/attachments/851075781413437474/851339042448605224/1.png")
+            embed.add_field(name="현재 채널에서 메세지 개수만큼 삭제", value="- ឵ ឵឵ ឵ `)cn <개수>`", inline=False)
+            embed.add_field(name="현재 채널에서 메세지 내용으로 삭제하기", value="- ឵ ឵឵ ឵ `)ck <내용>`", inline=False)
+            embed.add_field(name="현재 채널에서 특정 유저 메세지 삭제하기", value="- ឵ ឵឵ ឵ `)cn <유저 멘션>`", inline=False)
+            #embed.add_field(name="현재 채널에서 특정 유저 메세지 실시간으로 삭제(해당 명령어를 사용한 시점부터 중지 명령어를 사용하기 전까지 해당 유저가 쓰는 글이 실시간으로 삭제됩니다)", value="- ឵ ឵឵ ឵ `)ct <유저 멘션>`", inline=False) 
+            #embed.add_field(name="실시간 삭제 중지 ", value="- ឵ ឵឵ ឵ `)cs <개수>`", inline=False)
+            await message.channel.send(embed=embed)
+            
+            
+            
+            
+        elif message.content.startswith(")ck"):
+            #675635343952838658
+            if message.author.guild_permissions.manage_messages:
+                try:
+                    splited_keyword = message.content.split(" ")[1]
+                except:
+                    await message.channel.send("올바른 문자를 입력해주세요")
+                await message.delete()
+                
+                if message.guild:
+                    async for message in message.channel.history():
+                        if message.content in splited_keyword:
+                            try:
+                                await message.delete()
+                            except:
+                                pass
+            else:
+                await message.channel.send("해당 명령어를 사용할 권한이 없습니다")
+                  
+                  
+                  
+        elif message.content.startswith(")cn"):
+            if message.author.guild_permissions.manage_messages:
+                try:
+                    splited_number = int(message.content.split(" ")[1])
+                except:
+                    await message.channel.send("올바른 개수를 입력해주세요")
+                await message.delete()
+                await message.channel.purge(limit=splited_number)
+            else:
+                await message.channel.send("해당 명령어를 사용할 권한이 없습니다")
+                
+                
+                
+        elif message.content.startswith(")cu"):
+            if message.author.guild_permissions.manage_messages:
+                try:
+                    splited_user = message.mentions[0].id
+                except:
+                    await message.channel.send("올바른 유저를 입력해주세요")
+                await message.delete()
+                await message.channel.purge(limit=1000, check=lambda m: m.author.id == splited_user)
+            else:
+                await message.channel.send("해당 명령어를 사용할 권한이 없습니다")
+            
+
+        
         else:
             uMsg = message.content[1:]
             ints = predict_class(uMsg)
@@ -154,8 +207,6 @@ async def on_message(message):
             
 
 
-client.run("MY_TOKEN")
-
-
+client.run("My Token")
 
 

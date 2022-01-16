@@ -19,12 +19,8 @@ ignore_letters = ['이', '!', '.', ',']
 
 
 intents = json.loads(open('intents.json', encoding='UTF-8').read())
-
-
 words = pickle.load(open("pk-words.pkl", "rb"))
 classes = pickle.load(open("pk-classes.pkl", "rb"))
-
-
 model = load_model('bot_model.h5')
 
 
@@ -54,13 +50,10 @@ def bag_of_words(sentence):
 
 
 def predict_class(sentence):
-
     bow = bag_of_words(sentence)               # 원 핫 인코딩
     res = model.predict(np.array([bow]))[0]    # intent 별로 확률을 예측함                                 
-
     ERROR_THRESHOLD = 0.25
     results = [[i,r] for i,r in enumerate(res) if r > ERROR_THRESHOLD]
-
     results.sort(key=lambda x: x[1], reverse=True)
     intent_prob_list = []
     for r in results:
@@ -73,7 +66,6 @@ def getResponse(intents_list, intents_json):
     if float(intents_list[0]['probability']) < 0.6:
         error_result = "probability_low"
         return error_result
-    
     else:
         tag = intents_list[0]['intent']   #intent_list -->  [{'intent': '인사', 'probability': '0.9999933'}]
         list_of_intents = intents_json['intents']

@@ -12,19 +12,20 @@ okt = Okt()
 from tensorflow.keras.models import load_model
 
 
-
 #############################
 
 
 ignore_letters = ['이', '!', '.', ',']
 
+
 intents = json.loads(open('intents.json', encoding='UTF-8').read())
+
 
 words = pickle.load(open("pk-words.pkl", "rb"))
 classes = pickle.load(open("pk-classes.pkl", "rb"))
 
-model = load_model('bot_model.h5')
 
+model = load_model('bot_model.h5')
 
 
 def tokenize(sentence):     # 문장을 토큰화 한 후에 조사, 감탄사, 불용어 제거, 어근 추출
@@ -36,12 +37,10 @@ def tokenize(sentence):     # 문장을 토큰화 한 후에 조사, 감탄사, 
     return clean_words
 
 
-
 def clean_sentence(sentence):
     sentence_words = tokenize(sentence)
     print(sentence_words)
     return sentence_words
-
 
 
 def bag_of_words(sentence):
@@ -52,7 +51,6 @@ def bag_of_words(sentence):
             if word == w: 
                 bag[i] = 1
     return np.array(bag)     # 원 핫 인코딩
-
 
 
 def predict_class(sentence):
@@ -71,7 +69,6 @@ def predict_class(sentence):
     return intent_prob_list    #intent_list -->  [{'intent': '인사', 'probability': '0.9999933'}]
 
 
-
 def getResponse(intents_list, intents_json):
     if float(intents_list[0]['probability']) < 0.6:
         error_result = "probability_low"
@@ -87,126 +84,11 @@ def getResponse(intents_list, intents_json):
         return result
 
 
-
 ########################
-client = commands.Bot(command_prefix=")")
 
 
+uMsg = "your sentence"
+ints = predict_class(uMsg)
+res = getResponse(ints, intents)
 
-@client.event
-async def on_ready():
-    await client.change_presence(activity=discord.Game(name=")도움말"))
-    print("Bot Ready")
-
-
-
-@client.event
-async def on_message(message):
-    if message.author.bot: 
-        return None
-    
-    
-    if message.content.startswith(")"):
-        
-        
-        if message.content == ")도움말":
-            embed=discord.Embed(title="឵ ឵ ឵឵ ឵ ឵឵ ឵ ឵឵ ឵ ឵", color=0x00ff56)
-            embed.set_author(name="[ 파이드 도움말 ]", icon_url="https://cdn.discordapp.com/attachments/851075781413437474/851339042448605224/1.png")
-            embed.add_field(name="឵파이드는 AI 챗봇입니다", value="- ឵ ឵឵ ឵ `prefix: )`", inline=False) 
-            embed.add_field(name="឵) 뒤에 하고싶은 말을 해보세요", value="- ឵ ឵឵ ឵ ឵`)안녕`", inline=False) 
-            embed.add_field(name="파이드는 현재 영어를 지원하지 않습니다", value="- ឵ ឵឵ ឵ ឵`한글만 사용해주세요`", inline=False) 
-            embed.add_field(name="឵파이드는 계속 학습 중입니다", value="`개발 초기 단계이며 아직 학습량이 적어 여러 오류나 부적절한 행동이 있을 수 있습니다(학습 상태를 참조해주세요)`", inline=False) 
-            embed.add_field(name="개발자", value="- ឵ ឵឵ ឵ `Intipy#1111`", inline=False) 
-            embed.add_field(name="개발 일자", value="- ឵ ឵឵ ឵ `2021.06.05.`", inline=False)  
-            embed.add_field(name="파이드 공식 지원 서버", value="- ឵ ឵឵ ឵ https://discord.gg/yUQDS2sWZH", inline=False) 
-            embed.add_field(name="학습 상태", value="- ឵ ឵឵ ឵ `0.00000032 (매우 약함)`", inline=False)
-            embed.add_field(name="메세지 관리", value="- ឵ ឵឵ ឵ `)도움말 메세지`", inline=False) 
-            await message.channel.send(embed=embed)
-            
-            
-            
-        elif message.content == ")도움말 메세지":
-            embed=discord.Embed(title="឵ ឵ ឵឵ ឵ ឵឵ ឵ ឵឵ ឵ ឵", color=0x00ff56)
-            embed.set_author(name="[ 파이드 메세지 관리 도움말 ]", icon_url="https://cdn.discordapp.com/attachments/851075781413437474/851339042448605224/1.png")
-            embed.add_field(name="현재 채널에서 메세지 개수만큼 삭제", value="- ឵ ឵឵ ឵ `)cn <개수>`", inline=False)
-            embed.add_field(name="현재 채널에서 메세지 내용으로 삭제하기", value="- ឵ ឵឵ ឵ `)ck <내용>`", inline=False)
-            embed.add_field(name="현재 채널에서 특정 유저 메세지 삭제하기", value="- ឵ ឵឵ ឵ `)cn <유저 멘션>`", inline=False)
-            #embed.add_field(name="현재 채널에서 특정 유저 메세지 실시간으로 삭제(해당 명령어를 사용한 시점부터 중지 명령어를 사용하기 전까지 해당 유저가 쓰는 글이 실시간으로 삭제됩니다)", value="- ឵ ឵឵ ឵ `)ct <유저 멘션>`", inline=False) 
-            #embed.add_field(name="실시간 삭제 중지 ", value="- ឵ ឵឵ ឵ `)cs <개수>`", inline=False)
-            await message.channel.send(embed=embed)
-            
-            
-            
-            
-        elif message.content.startswith(")ck"):
-            #675635343952838658
-            if message.author.guild_permissions.manage_messages:
-                try:
-                    splited_keyword = message.content.split(" ")[1]
-                except:
-                    await message.channel.send("올바른 문자를 입력해주세요")
-                await message.delete()
-                
-                if message.guild:
-                    async for message in message.channel.history():
-                        if message.content in splited_keyword:
-                            try:
-                                await message.delete()
-                            except:
-                                pass
-            else:
-                await message.channel.send("해당 명령어를 사용할 권한이 없습니다")
-                  
-                  
-                  
-        elif message.content.startswith(")cn"):
-            if message.author.guild_permissions.manage_messages:
-                try:
-                    splited_number = int(message.content.split(" ")[1])
-                except:
-                    await message.channel.send("올바른 개수를 입력해주세요")
-                await message.delete()
-                await message.channel.purge(limit=splited_number)
-            else:
-                await message.channel.send("해당 명령어를 사용할 권한이 없습니다")
-                
-                
-                
-        elif message.content.startswith(")cu"):
-            if message.author.guild_permissions.manage_messages:
-                try:
-                    splited_user = message.mentions[0].id
-                except:
-                    await message.channel.send("올바른 유저를 입력해주세요")
-                await message.delete()
-                await message.channel.purge(limit=1000, check=lambda m: m.author.id == splited_user)
-            else:
-                await message.channel.send("해당 명령어를 사용할 권한이 없습니다")
-            
-
-        
-        else:
-            uMsg = message.content[1:]
-            ints = predict_class(uMsg)
-            res = getResponse(ints, intents)
-
-            if res == "json_time_set":
-                now = time.localtime()
-                res = "지금은 %02d시 %02d분이야 ㅎㅎ" % (now.tm_hour, now.tm_min)
-                await message.channel.send(res)
-            elif res == "json_date_set":
-                now = time.localtime()
-                res = "오늘은 %04d년 %02d월 %02d일이야 ㅎㅎ" % (now.tm_year, now.tm_mon, now.tm_mday)
-                await message.channel.send(res)
-            elif res == "probability_low":
-                res = random.choice(["그랭", "그래", "그래 ㅎ", "응", "웅", "응 ㅎㅎ", "그래 ㅎㅎ", "웅 ㅎㅎ"])
-                await message.channel.send(res)
-            else:
-                await message.channel.send(res)
-
-            
-
-
-client.run("My Token")
-
-
+print(res)
